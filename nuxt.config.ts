@@ -1,10 +1,20 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
     modules: [
-        ['@storyblok/nuxt', { accessToken: process.env.STORYBLOK_API_KEY }]
+        '@nuxtjs/tailwindcss',
+        '@nuxt/content',
+        '@nuxt/image-edge'
     ],
-    css: [
-        '@/assets/style/global.scss',
-        '@/assets/style/colors.scss'
-    ]
+    app: {
+        head: {
+            link: [
+                {rel: 'preconnect', href: 'https://fonts.googleapis.com'},
+                {rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: ''},
+                {rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&display=swap'},
+            ]
+        }
+    },
+    content: {
+        
+    }
 })

@@ -23,12 +23,18 @@
           <div class="overmij-sectie_wrap">
             <div>
               <h1>Laat me mijzelf introduceren</h1>
-              <p>Hallo! Mijn naam is Martijn van Driest. Ik ben een Grafisch Ontwerper uit Nederland. Mijn doel is om bedrijven op de juiste plek te plaatsen in de digitale wereld. Dat kan doormiddel van een website of een volledige huisstijl. Ik kan een bedrijf kan professionaliseren en er een nieuwe frisse wind in brengen.</p>
-            </div>
+              <p>Hallo! Mijn naam is Martijn van Driest. Ik ben een Grafisch Ontwerper uit Nederland. Mijn doel is om
+                bedrijven op de juiste plek te plaatsen in de digitale wereld. Dat kan doormiddel van een website of een
+                volledige huisstijl. Ik kan een bedrijf kan professionaliseren en er een nieuwe frisse wind in brengen.
+              </p>
+            </div>ß
             <div>
-              <a href=""><img src="https://a.storyblok.com/f/184315/x/a18966d378/behance-logo-black.svg" alt="Behance Logo"></a>
-              <a href=""><img src="https://a.storyblok.com/f/184315/x/05f5a8d960/linkedin-black.svg" alt="Linkedin logo"></a>
-              <a href=""><img src="https://a.storyblok.com/f/184315/x/9ef610a519/instagram1-black.svg" alt="Instagram logo"></a>
+              <a href=""><img src="https://a.storyblok.com/f/184315/x/a18966d378/behance-logo-black.svg"
+                  alt="Behance Logo"></a>
+              <a href=""><img src="https://a.storyblok.com/f/184315/x/05f5a8d960/linkedin-black.svg"
+                  alt="Linkedin logo"></a>
+              <a href=""><img src="https://a.storyblok.com/f/184315/x/9ef610a519/instagram1-black.svg"
+                  alt="Instagram logo"></a>
             </div>
           </div>
         </LayoutContainer>
@@ -39,16 +45,19 @@
   </div>
 </template>
 <style lang="scss" scoped>
-.page{
+.page {
   background-color: #111216;
 }
-.servicesection{
+
+.servicesection {
   padding-bottom: 0px;
 }
-.image-section{
+
+.image-section {
   position: relative;
   background-color: #111216;
-  .img{
+
+  .img {
     position: relative;
     width: 100%;
     height: 400px;
@@ -59,7 +68,8 @@
     background-size: cover;
     z-index: 1;
   }
-  .yellow-block{
+
+  .yellow-block {
     position: absolute;
     left: 0%;
     top: auto;
@@ -70,15 +80,18 @@
     background-color: #f5ff00;
   }
 }
-.overmij-sectie{
+
+.overmij-sectie {
   background-color: #f5ff00;
   padding: 110px 0px;
-  &_wrap{
+
+  &_wrap {
     display: flex;
     align-items: flex-start;
-    justify-content: space-between;  
-    div:first-of-type{
-      h1{
+    justify-content: space-between;
+
+    div:first-of-type {
+      h1 {
         max-width: 400px;
         margin-top: 0px;
         margin-bottom: 0px;
@@ -87,7 +100,8 @@
         line-height: 50px;
         font-weight: 600;
       }
-      p{
+
+      p {
         max-width: 550px;
         margin-top: 30px;
         color: #1a1b1f;
@@ -96,47 +110,55 @@
         font-weight: 400;
       }
     }
-    div:last-of-type{
+
+    div:last-of-type {
       display: flex;
       flex-direction: column;
       align-items: flex-end;
       gap: 25px;
-      img{
+
+      img {
         transform: scale(1.2);
       }
     }
   }
 }
-.page-layout{
+
+.page-layout {
   height: 80vh;
   display: flex;
   align-items: center;
   justify-content: flex-start;
   padding-top: 20px;
 }
-.header-section{
+
+.header-section {
   background-image: url("~/assets/image/logo-background.svg");
   background-position: 100% 50%;
   background-size: contain;
   background-repeat: no-repeat;
   background-attachment: scroll;
 }
-.header{
-  p:first-of-type{
+
+.header {
+  p:first-of-type {
     color: #F5FF00;
   }
-  h1{
+
+  h1 {
     font-size: 60px;
     color: white;
     font-weight: 600;
     max-width: 700px;
     margin: 30px 0px;
     line-height: 74px;
-    span{
+
+    span {
       color: #F5FF00;
     }
   }
-  p:last-of-type{
+
+  p:last-of-type {
     color: white;
     width: 400px;
     line-height: 1.7;

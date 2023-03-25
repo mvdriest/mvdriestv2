@@ -23,7 +23,7 @@
         <p>Webdesign</p>
         <div class="dot"></div>
         <p>Branding</p>
-        <div class="dot"></div>
+        <div class="dot"></div>π
         <p>Video editing</p>
         <div class="dot"></div>
         <p>Webdevelopment</p>
@@ -92,7 +92,8 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  height: 100px;
+  padding: 20px;
+  flex-wrap: nowrap;
   transform: rotate(-3deg);
   .textwrapper{
     display: flex;
