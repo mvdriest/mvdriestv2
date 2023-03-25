@@ -2,7 +2,7 @@
   <section class="header-section bg-right bg-contain bg-no-repeat bg-scroll">
     <LayoutTheContainer>
       <div class="h-[70vh] flex items-center justify-start pt-5">
-        <div class="header">
+        <div>
           <p class="text-primary-600">
             Welkom
           </p>
