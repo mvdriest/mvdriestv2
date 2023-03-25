@@ -28,6 +28,9 @@ export default <Partial<Config>>{
           500: '#464646',
           600: '#111216'
         }
+      },
+      height: {
+        sm: '21px'
       }
     }
   },
