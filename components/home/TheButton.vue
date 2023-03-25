@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import { RouteLocationRaw } from 'vue-router';
+import { RouteLocationRaw } from 'vue-router'
 
 interface Props {
   to: RouteLocationRaw,
 }
 
-const props = defineProps<Props>();
+const props = defineProps<Props>()
 </script>
 
 <template>
-  <NuxtLink :to="props.to" class="btn">
+  <NuxtLink :to="props.to" class="bg-primary btn bg-primary">
     <div class="btn_label">
       <div class="btn_label--wrapper">
         <div class="btn_label--item">
@@ -20,7 +20,7 @@ const props = defineProps<Props>();
         </div>
       </div>
     </div>
-  </NuxtLink>    
+  </NuxtLink>
 </template>
 
 <style lang="scss" scoped>

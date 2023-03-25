@@ -1,9 +1,9 @@
 <template>
-  <div class="layout">
-    <LayoutNavbar />
+  <div class="scroll-smooth">
+    <LayoutTheNavbar />
     <main>
       <slot />
     </main>
-    <LayoutFooter />
+    <LayoutTheFooter />
   </div>
 </template>

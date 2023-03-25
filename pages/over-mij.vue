@@ -1,43 +1,51 @@
 <template>
   <div class="page">
     <div class="header-section">
-      <LayoutContainer>
+      <LayoutTheContainer>
         <div class="page-layout">
           <div class="header">
-            <h1>Ik ben er om uw bedrijf op de <span>juiste plek</span> te plaatsen in de digitale wereld
+            <h1>
+              Ik ben er om uw bedrijf op de <span>juiste plek</span> te plaatsen in de digitale wereld
             </h1>
             <p>Ik ben een creatief persoon die zich bezig houdt met onder andere grafisch ontwerpen.</p>
           </div>
         </div>
-      </LayoutContainer>
+      </LayoutTheContainer>
     </div>
     <div class="over-mij">
       <div class="image-section">
-        <LayoutContainer>
-          <div class="img"></div>
-        </LayoutContainer>
-        <div class="yellow-block"></div>
+        <LayoutTheContainer>
+          <div class="img" />
+        </LayoutTheContainer>
+        <div class="yellow-block" />
       </div>
       <div class="overmij-sectie">
-        <LayoutContainer>
+        <LayoutTheContainer>
           <div class="overmij-sectie_wrap">
             <div>
               <h1>Laat me mijzelf introduceren</h1>
-              <p>Hallo! Mijn naam is Martijn van Driest. Ik ben een Grafisch Ontwerper uit Nederland. Mijn doel is om
+              <p>
+                Hallo! Mijn naam is Martijn van Driest. Ik ben een Grafisch Ontwerper uit Nederland. Mijn doel is om
                 bedrijven op de juiste plek te plaatsen in de digitale wereld. Dat kan doormiddel van een website of een
                 volledige huisstijl. Ik kan een bedrijf kan professionaliseren en er een nieuwe frisse wind in brengen.
               </p>
             </div>ß
             <div>
-              <a href=""><img src="https://a.storyblok.com/f/184315/x/a18966d378/behance-logo-black.svg"
-                  alt="Behance Logo"></a>
-              <a href=""><img src="https://a.storyblok.com/f/184315/x/05f5a8d960/linkedin-black.svg"
-                  alt="Linkedin logo"></a>
-              <a href=""><img src="https://a.storyblok.com/f/184315/x/9ef610a519/instagram1-black.svg"
-                  alt="Instagram logo"></a>
+              <a href=""><img
+                src="https://a.storyblok.com/f/184315/x/a18966d378/behance-logo-black.svg"
+                alt="Behance Logo"
+              ></a>
+              <a href=""><img
+                src="https://a.storyblok.com/f/184315/x/05f5a8d960/linkedin-black.svg"
+                alt="Linkedin logo"
+              ></a>
+              <a href=""><img
+                src="https://a.storyblok.com/f/184315/x/9ef610a519/instagram1-black.svg"
+                alt="Instagram logo"
+              ></a>
             </div>
           </div>
-        </LayoutContainer>
+        </LayoutTheContainer>
       </div>
       <HomeSectionsServicesSection class="servicesection" />
       <HomeSectionsContactSection />

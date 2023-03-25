@@ -1,19 +1,25 @@
 <template>
   <div class="nav">
-    <LayoutContainer>
+    <LayoutTheContainer>
       <nav class="test">
-          <NuxtLink to="/">
-            <img src="~/assets/image/Logo-mvdriest-geel.png" alt="logo">
+        <NuxtLink to="/">
+          <img src="~/assets/image/Logo-mvdriest-geel.png" alt="logo">
+        </NuxtLink>
+        <div>
+          <NuxtLink to="/over-mij">
+            Over mij
           </NuxtLink>
-          <div>
-            <NuxtLink to="/over-mij">Over mij</NuxtLink>
-            <NuxtLink to="/">Porfolio</NuxtLink>
-          </div>
-          <div>
-            <NuxtLink to="/">Contact</NuxtLink>
-          </div>
+          <NuxtLink to="/">
+            Porfolio
+          </NuxtLink>
+        </div>
+        <div>
+          <NuxtLink to="/">
+            Contact
+          </NuxtLink>
+        </div>
       </nav>
-    </LayoutContainer>
+    </LayoutTheContainer>
   </div>
 </template>
 

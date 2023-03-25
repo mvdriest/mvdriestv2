@@ -1,17 +1,18 @@
 <template>
-    <section class="header-section">
-      <LayoutContainer>
-        <div class="page-layout">
-          <div class="header">
-            <p>Welkom</p>
-            <h1>Breng uw bedrijf naar 
+  <section class="header-section">
+    <LayoutTheContainer>
+      <div class="page-layout">
+        <div class="header">
+          <p>Welkom</p>
+          <h1>
+            Breng uw bedrijf naar
             een <span>hoger niveau</span>
-            </h1>
-            <p>Hallo! Mijn naam is Martijn van Driest. Aangenaam kennis te maken. Ik ben een Grafisch Ontwerper uit Nederland.</p>
-          </div>
+          </h1>
+          <p>Hallo! Mijn naam is Martijn van Driest. Aangenaam kennis te maken. Ik ben een Grafisch Ontwerper uit Nederland.</p>
         </div>
-      </LayoutContainer>
-    </section>
+      </div>
+    </LayoutTheContainer>
+  </section>
 </template>
 
 <style lang="scss" scoped>

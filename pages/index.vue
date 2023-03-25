@@ -4,32 +4,32 @@
     <ProjectList />
     <div class="infosection">
       <h1>Ik ben er om uw bedrijf op de juiste plek te plaatsen in de <span>digitale wereld</span> en op een professionele manier. Een goede huisstijl is essentieel om de juiste uitstraling te geven.</h1>
-      <div><img src="~/assets/image/MacBookPro.jpg" alt=""></div>
+      <div><img src="~/assets/image/MacBookPro.jpg" alt="Macbook"></div>
     </div>
     <div class="textslider">
       <div class="textwrapper">
         <p>Webdesign</p>
-        <div class="dot"></div>
+        <div class="dot" />
         <p>Branding</p>
-        <div class="dot"></div>
+        <div class="dot" />
         <p>Video editing</p>
-        <div class="dot"></div>
+        <div class="dot" />
         <p>Webdevelopment</p>
-        <div class="dot"></div>
+        <div class="dot" />
         <p>Design</p>
-        <div class="dot"></div>
+        <div class="dot" />
       </div>
       <div class="textwrapper">
         <p>Webdesign</p>
-        <div class="dot"></div>
+        <div class="dot" />
         <p>Branding</p>
-        <div class="dot"></div>π
+        <div class="dot" />π
         <p>Video editing</p>
-        <div class="dot"></div>
+        <div class="dot" />
         <p>Webdevelopment</p>
-        <div class="dot"></div>
+        <div class="dot" />
         <p>Design</p>
-        <div class="dot"></div>
+        <div class="dot" />
       </div>
     </div>
     <HomeSectionsServicesSection />
@@ -40,7 +40,6 @@
 .page{
   background-color: #111216;
 }
-
 
 .infosection{
   padding: 150px 0px;

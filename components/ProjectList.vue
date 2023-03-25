@@ -1,12 +1,12 @@
 <template>
-    <div class="slidersection">
-      <div class="list">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
+  <div class="slidersection">
+    <div class="list">
+      <div />
+      <div />
+      <div />
+      <div />
     </div>
+  </div>
 </template>
 
 <style lang="scss" scoped>
