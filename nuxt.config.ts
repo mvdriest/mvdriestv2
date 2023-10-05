@@ -4,7 +4,8 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     '@nuxt/content',
     '@nuxt/image',
-    'nuxt-headlessui'
+    'nuxt-headlessui',
+    '@nuxthq/studio'
   ],
   app: {
     head: {
