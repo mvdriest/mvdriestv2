@@ -1,65 +1,51 @@
+<script lang="ts" setup>
+type LinkType = {
+  to: string;
+  text: string;
+};
+const links: LinkType[] = [
+  {
+    to: "/over-mij",
+    text: "Over mij",
+  },
+  {
+    to: "/portfolio",
+    text: "Portfolio",
+  },
+];
+</script>
+
 <template>
-  <div class="nav">
+  <div
+    class="absolute w-full top-0 bg-gradient-to-b from-dark-600/60 to-transparent"
+  >
     <LayoutTheContainer>
-      <nav class="test">
+      <nav class="relative flex items-center justify-between pt-10 z-20">
         <NuxtLink to="/">
-          <img src="~/assets/image/Logo-mvdriest-geel.png" alt="logo">
+          <nuxt-img
+            src="/images/other/Logo-mvdriest-geel.png"
+            alt="logo"
+            class="w-20"
+          />
         </NuxtLink>
-        <div>
-          <NuxtLink to="/over-mij">
-            Over mij
-          </NuxtLink>
-          <NuxtLink to="/">
-            Porfolio
-          </NuxtLink>
+        <div
+          class="absolute inset-0 mx-44 flex justify-center items-center pt-10 z-10"
+        >
+          <div class="flex gap-5">
+            <NuxtLink
+              v-for="(link, index) in links"
+              :key="index"
+              :to="link.to"
+              class="opacity-100 text-white no-underline hover:underline"
+            >
+              {{ link.text }}
+            </NuxtLink>
+          </div>
         </div>
-        <div>
-          <NuxtLink to="/">
-            Contact
-          </NuxtLink>
-        </div>
+        <HomeTheButton class="!py-4 !px-10 rounded-lg" to="/contact">
+          Contact
+        </HomeTheButton>
       </nav>
     </LayoutTheContainer>
   </div>
 </template>
-
-<style lang="scss" scoped>
-.nav{
-  position: absolute;
-  width: 100%;
-  top: 0%;
-}
-img{
-  width: 5em;
-}
-.test{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-top: 40px;
-  div:first-of-type{
-    display: flex;
-    gap: 20px;
-    a{
-      opacity: 1;
-      color: #fff;
-      font-size: 16px;
-      line-height: 20px;
-      font-weight: 400;
-      letter-spacing: 1px;
-      text-decoration: none;
-      text-transform: none;
-    }
-  }
-  div:last-of-type{
-    a{
-      text-decoration: none;
-      text-transform: none;
-      color: #000;
-      background-color: #F5FF00;
-      padding: 15px 40px;
-      border-radius: 8px;
-    }
-  }
-}
-</style>

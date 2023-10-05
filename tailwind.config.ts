@@ -26,7 +26,8 @@ export default <Partial<Config>>{
         },
         dark: {
           500: '#464646',
-          600: '#111216'
+          600: '#111216',
+          700: '#1a1b1f'
         }
       },
       height: {

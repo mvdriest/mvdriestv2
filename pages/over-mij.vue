@@ -1,175 +1,92 @@
+<script setup lang="ts">
+const socials = [
+  {
+    imageUrl:
+      "https://a.storyblok.com/f/184315/x/a18966d378/behance-logo-black.svg",
+    name: "Behance",
+    link: "",
+  },
+  {
+    imageUrl:
+      "https://a.storyblok.com/f/184315/x/05f5a8d960/linkedin-black.svg",
+    name: "Linkedin",
+    link: "",
+  },
+  {
+    imageUrl:
+      "https://a.storyblok.com/f/184315/x/9ef610a519/instagram1-black.svg",
+    name: "Instagram",
+    link: "",
+  },
+];
+</script>
+
 <template>
-  <div class="page">
-    <div class="header-section">
+  <div class="bg-dark-600">
+    <div
+      class="bg-[url('~/assets/image/logo-background.svg')] bg-right bg-contain bg-no-repeat bg-scroll"
+    >
       <LayoutTheContainer>
-        <div class="page-layout">
-          <div class="header">
-            <h1>
-              Ik ben er om uw bedrijf op de <span>juiste plek</span> te plaatsen in de digitale wereld
+        <div class="flex items-center justify-start">
+          <div class="header mt-[190px] mb-[100px]">
+            <h1
+              class="text-white text-4xl leading-snug md:text-6xl font-semibold md:max-w-2xl mb-8 md:leading-tight"
+            >
+              Ik ben er om uw bedrijf op de
+              <span class="text-primary-600">juiste plek</span> te plaatsen in
+              de digitale wereld
             </h1>
-            <p>Ik ben een creatief persoon die zich bezig houdt met onder andere grafisch ontwerpen.</p>
+            <p class="text-white md:w-96 leading-7">
+              Ik ben een creatief persoon die zich bezig houdt met onder andere
+              grafisch ontwerpen.
+            </p>
           </div>
         </div>
       </LayoutTheContainer>
     </div>
     <div class="over-mij">
-      <div class="image-section">
+      <div class="relative bg-dark-600">
         <LayoutTheContainer>
-          <div class="img" />
+          <div
+            class="relative w-full h-96 mx-auto bg-[url('https://a.storyblok.com/f/184315/1514x1027/dd3388de7a/flyer-mockup-1.jpg')] bg-center bg-cover z-10"
+          />
         </LayoutTheContainer>
-        <div class="yellow-block" />
+        <div
+          class="absolute left-0 right-0 top-auto bottom-0 w-full h-1/2 bg-primary-600"
+        />
       </div>
-      <div class="overmij-sectie">
+      <div class="bg-primary-600 py-28">
         <LayoutTheContainer>
-          <div class="overmij-sectie_wrap">
+          <div
+            class="flex gap-8 flex-col md:flex-row items-start md:justify-between"
+          >
             <div>
-              <h1>Laat me mijzelf introduceren</h1>
-              <p>
-                Hallo! Mijn naam is Martijn van Driest. Ik ben een Grafisch Ontwerper uit Nederland. Mijn doel is om
-                bedrijven op de juiste plek te plaatsen in de digitale wereld. Dat kan doormiddel van een website of een
-                volledige huisstijl. Ik kan een bedrijf kan professionaliseren en er een nieuwe frisse wind in brengen.
+              <h1
+                class="max-w-md my-0 text-[2.5rem] leading-[50px] font-semibold"
+              >
+                Laat me mijzelf introduceren
+              </h1>
+              <p class="max-w-xl mt-8 text-dark-700 leading-7 font-normal">
+                Hallo! Mijn naam is Martijn van Driest. Ik ben een Grafisch
+                Ontwerper uit Nederland. Mijn doel is om bedrijven op de juiste
+                plek te plaatsen in de digitale wereld. Dat kan doormiddel van
+                een website of een volledige huisstijl. Ik kan een bedrijf
+                professionaliseren en er een nieuwe frisse wind in brengen.
               </p>
-            </div>ß
-            <div>
-              <a href=""><img
-                src="https://a.storyblok.com/f/184315/x/a18966d378/behance-logo-black.svg"
-                alt="Behance Logo"
-              ></a>
-              <a href=""><img
-                src="https://a.storyblok.com/f/184315/x/05f5a8d960/linkedin-black.svg"
-                alt="Linkedin logo"
-              ></a>
-              <a href=""><img
-                src="https://a.storyblok.com/f/184315/x/9ef610a519/instagram1-black.svg"
-                alt="Instagram logo"
-              ></a>
             </div>
+            <!-- <div class="flex items-center md:flex-col md:items-end gap-5">
+              <a v-for="(social, index) in socials" :key="index" :href="social.link"><nuxt-img
+                :src="social.imageUrl"
+                :alt="social.name"
+                class="md:w-auto md:scale-[1.2] hover:scale-[1.5] transition-all"
+              /></a>
+            </div> -->
+            <SocialsList color="black" direction="column" />
           </div>
         </LayoutTheContainer>
       </div>
-      <HomeSectionsServicesSection class="servicesection" />
+      <HomeSectionsServicesSection class="pt-[150px]" />
       <HomeSectionsContactSection />
     </div>
   </div>
 </template>
-<style lang="scss" scoped>
-.page {
-  background-color: #111216;
-}
-
-.servicesection {
-  padding-bottom: 0px;
-}
-
-.image-section {
-  position: relative;
-  background-color: #111216;
-
-  .img {
-    position: relative;
-    width: 100%;
-    height: 400px;
-    margin-right: auto;
-    margin-left: auto;
-    background-image: url('https://a.storyblok.com/f/184315/1514x1027/dd3388de7a/flyer-mockup-1.jpg');
-    background-position: 50% 50%;
-    background-size: cover;
-    z-index: 1;
-  }
-
-  .yellow-block {
-    position: absolute;
-    left: 0%;
-    top: auto;
-    right: 0%;
-    bottom: 0%;
-    width: 100%;
-    height: 50%;
-    background-color: #f5ff00;
-  }
-}
-
-.overmij-sectie {
-  background-color: #f5ff00;
-  padding: 110px 0px;
-
-  &_wrap {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-
-    div:first-of-type {
-      h1 {
-        max-width: 400px;
-        margin-top: 0px;
-        margin-bottom: 0px;
-        font-family: Sora, sans-serif;
-        font-size: 40px;
-        line-height: 50px;
-        font-weight: 600;
-      }
-
-      p {
-        max-width: 550px;
-        margin-top: 30px;
-        color: #1a1b1f;
-        font-size: 16px;
-        line-height: 28px;
-        font-weight: 400;
-      }
-    }
-
-    div:last-of-type {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 25px;
-
-      img {
-        transform: scale(1.2);
-      }
-    }
-  }
-}
-
-.page-layout {
-  height: 80vh;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding-top: 20px;
-}
-
-.header-section {
-  background-image: url("~/assets/image/logo-background.svg");
-  background-position: 100% 50%;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-}
-
-.header {
-  p:first-of-type {
-    color: #F5FF00;
-  }
-
-  h1 {
-    font-size: 60px;
-    color: white;
-    font-weight: 600;
-    max-width: 700px;
-    margin: 30px 0px;
-    line-height: 74px;
-
-    span {
-      color: #F5FF00;
-    }
-  }
-
-  p:last-of-type {
-    color: white;
-    width: 400px;
-    line-height: 1.7;
-  }
-}
-</style>

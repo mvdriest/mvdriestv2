@@ -6,7 +6,7 @@
 
 <style lang="scss" scoped>
 .container:not(.disabled) {
-  max-width: 1800px;
+  max-width: 1400px;
   margin: 0 auto;
   @media (max-width: 2100px) {
     max-width: 1400px;

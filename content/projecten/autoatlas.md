@@ -1,12 +1,14 @@
 ---
 title: 'Auto Atlas'
-tags: ['Web design', 'Branding']
+tags: ['Web design', 'Branding', 'Web Development']
 link: 'https://www.autoatlas.nl'
 projectAssetsDir: 'autoatlas'
 ---
 # Auto Atlas
 
+::div{.max-w-2xl}
 Welkom in de wereld van leidingen en kabels. Daar waar met een netwerk van mensen, structuur gegeven wordt aan het netwerk van boven- en ondergrondse infra. Van Voskuilen Woudenberg houd zich dag in dag uit, sinds 1964 bezig met het aanleggen en onderhouden van connecties via gas-, water-, elektra- en telecomleidingen en kabels.
+::
 
 :image-gallery{baseDir="autoatlas" gallery="gallery1" :images='["img1.jpeg", "img2.jpeg", "img3.jpeg"]'}
 
