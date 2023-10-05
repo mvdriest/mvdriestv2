@@ -28,7 +28,7 @@ const skills = [
           <p>{{ skill }}</p>
           <nuxt-img
             class="mx-8 -mt-1"
-            src="/images/other/star.svg"
+            src="/images/other/Star.svg"
             alt="Star"
           />
         </template>
@@ -38,7 +38,7 @@ const skills = [
           <p>{{ skill }}</p>
           <nuxt-img
             class="mx-8 -mt-1"
-            src="/images/other/star.svg"
+            src="/images/other/Star.svg"
             alt="Star"
           />
         </template>
