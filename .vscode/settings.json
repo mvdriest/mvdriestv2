@@ -1,10 +1,13 @@
 {
     "editor.codeActionsOnSave": {
-        "source.fixAll": false,
-        "source.fixAll.eslint": true
+        "source.fixAll": "never",
+        "source.fixAll.eslint": "explicit"
     },
-    "tailwindCSS.experimental.configFile": ".nuxt/tailwind.config.cjs",
+    "tailwindCSS.experimental.configFile": "./tailwind.config.ts",
     "files.associations": {
         "*.css": "tailwindcss"
+    },
+    "editor.quickSuggestions": {
+        "strings": true
     }
 }

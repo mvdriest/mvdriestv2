@@ -37,10 +37,8 @@ const socials: Social[] = [
   }
 ]
 
-type SocialColor = keyof Social['imageUrl'];
-
 const props = defineProps<{
-  color: SocialColor;
+  color: 'black' | 'yellow';
   direction: 'column' | 'row';
 }>()
 </script>

@@ -1,49 +1,49 @@
 <script lang="ts" setup>
 type ContactStatus = {
-  type: "none" | "pending" | "success" | "fail";
+  type: 'none' | 'pending' | 'success' | 'fail';
   message: String;
 };
 const contactStatus = ref<ContactStatus>({
-  type: "none",
-  message: "",
-});
+  type: 'none',
+  message: ''
+})
 
 const sendForm = async (e: Event) => {
-  const formData = new FormData(e.target as HTMLFormElement);
+  const formData = new FormData(e.target as HTMLFormElement)
 
   try {
-    await $fetch("https://formspree.io/f/myyqynak", {
-      method: "POST",
+    await $fetch('https://formspree.io/f/myyqynak', {
+      method: 'POST',
       body: formData,
       headers: {
-        Accept: "application/json",
-      },
-    });
+        Accept: 'application/json'
+      }
+    })
 
     contactStatus.value = {
-      type: "success",
-      message: "Het versturen is gelukt!",
-    };
+      type: 'success',
+      message: 'Het versturen is gelukt!'
+    }
   } catch (err: any) {
     console.error(
-      "Er is iets fout gegaan bij het versturen van het formulier",
+      'Er is iets fout gegaan bij het versturen van het formulier',
       err
-    );
+    )
     if (err?.data?.errors) {
       contactStatus.value = {
-        type: "fail",
-        message: err?.data?.errors.map((e: any) => e?.message).join(", "),
-      };
-      return;
+        type: 'fail',
+        message: err?.data?.errors.map((e: any) => e?.message).join(', ')
+      }
+      return
     }
     contactStatus.value = {
-      type: "fail",
-      message: "Er is iets fout gegaan. Probeer het later opnieuw!",
-    };
+      type: 'fail',
+      message: 'Er is iets fout gegaan. Probeer het later opnieuw!'
+    }
   } finally {
-    (e.target as HTMLFormElement)?.reset();
+    (e.target as HTMLFormElement)?.reset()
   }
-};
+}
 </script>
 
 <template>
@@ -90,7 +90,7 @@ const sendForm = async (e: Event) => {
                 name="name"
                 class="border placeholder:text-slate-500 bg-gray-100 rounded-md p-2"
                 placeholder="John Doe"
-              />
+              >
             </div>
             <div class="flex flex-col space-y-1">
               <label class="text-black font-semibold"> Uw email: </label>
@@ -99,7 +99,7 @@ const sendForm = async (e: Event) => {
                 name="email"
                 class="border placeholder:text-slate-500 bg-gray-100 rounded-md p-2"
                 placeholder="email@email.com"
-              />
+              >
             </div>
             <div class="flex flex-col space-y-1">
               <label class="text-black font-semibold"> Uw bericht: </label>

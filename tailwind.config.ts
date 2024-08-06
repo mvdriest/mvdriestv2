@@ -18,7 +18,7 @@ export default <Partial<Config>>{
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Sora', ...defaultTheme.fontFamily.sans]
+        sans: ['"obviously"', ...defaultTheme.fontFamily.sans]
       },
       colors: {
         primary: {

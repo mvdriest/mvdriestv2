@@ -2,23 +2,23 @@
 const socials = [
   {
     imageUrl:
-      "https://a.storyblok.com/f/184315/x/a18966d378/behance-logo-black.svg",
-    name: "Behance",
-    link: "",
+      'https://a.storyblok.com/f/184315/x/a18966d378/behance-logo-black.svg',
+    name: 'Behance',
+    link: ''
   },
   {
     imageUrl:
-      "https://a.storyblok.com/f/184315/x/05f5a8d960/linkedin-black.svg",
-    name: "Linkedin",
-    link: "",
+      'https://a.storyblok.com/f/184315/x/05f5a8d960/linkedin-black.svg',
+    name: 'Linkedin',
+    link: ''
   },
   {
     imageUrl:
-      "https://a.storyblok.com/f/184315/x/9ef610a519/instagram1-black.svg",
-    name: "Instagram",
-    link: "",
-  },
-];
+      'https://a.storyblok.com/f/184315/x/9ef610a519/instagram1-black.svg',
+    name: 'Instagram',
+    link: ''
+  }
+]
 </script>
 
 <template>

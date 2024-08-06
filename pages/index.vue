@@ -1,17 +1,17 @@
 <script lang="ts" setup>
 const skills = [
-  "Webdesign",
-  "Branding",
-  "Video Editing",
-  "Webdevelopment",
-  "Design",
-];
+  'Webdesign',
+  'Branding',
+  'Video Editing',
+  'Webdevelopment',
+  'Design'
+]
 </script>
 
 <template>
   <div class="page overflow-x-hidden">
     <TheHeader />
-    <ProjectSlider />
+    <!-- <ProjectSlider /> -->
     <LayoutTheContainer>
       <div class="infosection">
         <h1 class="text-4xl md:text-[40px]">
@@ -51,7 +51,9 @@ const skills = [
           class="mb-[35px] gap-[20px] flex flex-col justify-between items-start md:flex-row md:items-center"
         >
           <div>
-            <p class="text-[#F5FF00] mb-[20px]">Projecten</p>
+            <p class="text-[#F5FF00] mb-[20px]">
+              Projecten
+            </p>
             <h1 class="text-white text-[40px] font-semibold">
               Deze bedrijven gingen u voor
             </h1>

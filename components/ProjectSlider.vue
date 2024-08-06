@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-const contentQuery = await queryContent("projecten").limit(6).find();
+const contentQuery = await queryContent('projecten').limit(6).find()
 </script>
 
 <template>

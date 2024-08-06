@@ -1,8 +1,6 @@
 <script setup lang="ts">
-import { RouteLocationRaw } from 'vue-router'
-
 interface Props {
-  to: RouteLocationRaw,
+  to: string,
 }
 
 const props = defineProps<Props>()
