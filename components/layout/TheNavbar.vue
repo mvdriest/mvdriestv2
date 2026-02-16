@@ -55,7 +55,7 @@ const links: LinkType[] = [
               </button>
             </div>
           </div>
-          <a href="#" class="-m-1.5 p-1.5">
+          <a href="/" class="-m-1.5 p-1.5">
             <span class="sr-only">Your Company</span>
             <nuxt-img
               src="/images/other/mvdriest.svg"

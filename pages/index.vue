@@ -11,8 +11,16 @@ const skills = [
 <template>
   <div class="page overflow-x-hidden">
     <TheHeader />
+    <section class="py-36">
+      <LayoutTheContainer> 
+        <div class="grid grid-cols-2 gap-12 text-white">
+          <h1 class="text-6xl uppercase font-bold max-w-[35rem] leading-tight">Jouw Merk is Te Cool voor Standaard. 😎</h1>
+          <p class="text-lg font-normal leading-loose">Bij ons draait het niet om zomaar een kleurtje of een basic logo. We geloven dat een merk een gevoel moet uitstralen dat de juiste doelgroep raakt. Wij helpen je om dat unieke gevoel te vangen en jouw merk echt te laten sprankelen. Want laten we eerlijk zijn, jouw merk is te cool om gewoon standaard te zijn!</p>
+        </div>
+      </LayoutTheContainer>
+    </section>
     <!-- <ProjectSlider /> -->
-    <LayoutTheContainer>
+    <!-- <LayoutTheContainer>
       <div class="infosection">
         <h1 class="text-4xl md:text-[40px]">
           Ik ben er om uw bedrijf op de juiste plek te plaatsen in de
@@ -21,7 +29,7 @@ const skills = [
         </h1>
         <div><nuxt-img src="/images/other/MacBookPro.jpg" alt="Macbook" /></div>
       </div>
-    </LayoutTheContainer>
+    </LayoutTheContainer> -->
     <div class="textslider">
       <div v-for="wrapper in 2" :key="wrapper" class="textwrapper">
         <template v-for="(skill, index) in skills" :key="index">
