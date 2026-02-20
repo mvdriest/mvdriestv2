@@ -3,7 +3,6 @@
         "source.fixAll": "never",
         "source.fixAll.eslint": "explicit"
     },
-    "tailwindCSS.experimental.configFile": "./tailwind.config.ts",
     "files.associations": {
         "*.css": "tailwindcss"
     },

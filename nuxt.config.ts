@@ -1,6 +1,8 @@
+import tailwindcss from "@tailwindcss/vite";
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  modules: ['@nuxtjs/tailwindcss', '@nuxt/content', '@nuxt/image', 'nuxt-headlessui', '@nuxthq/studio', '@nuxt/icon'],
+  modules: ['@nuxt/content', '@nuxt/image', 'nuxt-headlessui', '@nuxthq/studio', '@nuxt/icon'],
 
   devtools: {
     enabled: true
@@ -20,6 +22,15 @@ export default defineNuxtConfig({
   content: {
 
   },
+  css: [
+    './app/assets/css/tailwind.css',
+    './app/assets/css/loader.css',
+  ],
 
-  compatibilityDate: '2024-08-06'
+  compatibilityDate: 'latest',
+  vite: {
+    plugins: [
+      tailwindcss() as any
+    ],
+  }
 })

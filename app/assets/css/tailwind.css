@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --color-primary-600: #F5FF00;
+
+  --color-dark-500: #464646;
+  --color-dark-600: #111216;
+  --color-dark-700: #1a1b1f;
+  --color-dark-800: #212121;
+
+  --color-gray-200: #E3E3E3;
+
+  --height-sm: 21px;
+
+  --font-family-sans: 'obviously', sans-serif;
+  --font-family-helvetica: 'helvetica-neue-lt-pro', sans-serif;
+
+  --font-size-xs: 12px;
+  --font-size-sm: 14px;
+  --font-size-md: 16px;
+  --font-size-lg: 18px;
+  --font-size-xl: 20px;
+  --font-size-2xl: 24px;
+  --font-size-3xl: 32px;
+}
+
+body {
+  font-family: obviously, sans-serif;
+}
