@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import { onMounted, onBeforeUnmount } from 'vue'
+import Lenis from 'lenis'
 
 let cleanupScrollTriggers: (() => void) | null = null
+let anchorCleanup: (() => void) | null = null
 
 onMounted(async () => {
   if (!process.client) { return }
@@ -88,6 +90,54 @@ onMounted(async () => {
     triggers.push(trigger)
   })
 
+  // --- Lenis / smooth scroll anchor support ---
+  let lenis: any = null
+  try {
+    // Prefer window.Lenis (CDN) if present, otherwise use the installed package
+    const LenisClass = (window as any).Lenis || Lenis
+    lenis = new LenisClass({ autoRaf: true })
+  } catch (e) {
+    lenis = null
+  }
+
+  const bound: Array<{ el: HTMLElement; handler: EventListener }> = []
+
+  const root = (document.querySelector('.progress-nav') as HTMLElement) || (document.body as HTMLElement)
+  const nodeList = root.querySelectorAll<HTMLElement>('[data-anchor-target],[data-progress-nav-target], a[href^="#"]')
+  const elems = Array.from(nodeList)
+
+  for (const el of elems) {
+    const handler: EventListener = (ev: Event) => {
+      ev.preventDefault()
+      const target = el.getAttribute('data-anchor-target') || el.getAttribute('data-progress-nav-target') || (el as HTMLAnchorElement).getAttribute('href') || null
+      if (!target) return
+
+      if (lenis && typeof lenis.scrollTo === 'function') {
+        try {
+          lenis.scrollTo(target, {
+            easing: (x: number) => (x < 0.5 ? 8 * x * x * x * x : 1 - Math.pow(-2 * x + 2, 4) / 2),
+            duration: 1.0,
+            offset: 0
+          })
+        } catch (e) {
+          const node = document.querySelector(target)
+          if (node) (node as HTMLElement).scrollIntoView({ behavior: 'smooth', block: 'start' })
+        }
+      } else {
+        const node = document.querySelector(target)
+        if (node) (node as HTMLElement).scrollIntoView({ behavior: 'smooth', block: 'start' })
+      }
+    }
+
+    el.addEventListener('click', handler)
+    bound.push({ el, handler })
+  }
+
+  anchorCleanup = () => {
+    bound.forEach(b => b.el.removeEventListener('click', b.handler))
+    if (lenis && typeof lenis.destroy === 'function') try { lenis.destroy() } catch (e) {}
+  }
+
   cleanupScrollTriggers = () => {
     triggers.forEach((t) => t?.kill && t.kill())
   }
@@ -97,6 +147,10 @@ onBeforeUnmount(() => {
   if (cleanupScrollTriggers) {
     cleanupScrollTriggers()
     cleanupScrollTriggers = null
+  }
+  if (anchorCleanup) {
+    anchorCleanup()
+    anchorCleanup = null
   }
 })
 </script>
@@ -118,7 +172,7 @@ onBeforeUnmount(() => {
         <div data-progress-nav-list class="progress-nav__list">
           <div class="progress-nav__indicator" />
           <div data-progress-nav-target="#top" class="progress-nav__btn is--before" />
-          <a data-progress-nav-target="#introduction" href="#introduction" class="progress-nav__btn">
+          <a data-anchor-target="#introduction" data-progress-nav-target="#introduction" href="#introduction" class="progress-nav__btn">
             <span class="progress-nav__btn-text font-family-helvetica font-semibold ">Over mij</span>
             <span class="progress-nav__btn-text is--duplicate font-family-helvetica font-semibold ">Over mij</span>
           </a>
@@ -126,7 +180,7 @@ onBeforeUnmount(() => {
             <span class="progress-nav__btn-text font-family-helvetica font-semibold ">Mijn werk</span>
             <span class="progress-nav__btn-text is--duplicate font-family-helvetica font-semibold ">Mijn werk</span>
           </a>
-          <a data-progress-nav-target="#product" href="#product" class="progress-nav__btn">
+          <a data-progress-nav-target="#service" href="#service" class="progress-nav__btn">
             <span class="progress-nav__btn-text font-family-helvetica font-semibold">Services</span>
             <span class="progress-nav__btn-text is--duplicate font-family-helvetica font-semibold">Services</span>
           </a>
@@ -139,8 +193,8 @@ onBeforeUnmount(() => {
       </div>
 
       <a href="#bottom" class="progress-nav__contact-btn">
-        <span class="progress-nav__btn-text">Get in touch</span>
-        <span class="progress-nav__btn-text is--duplicate">Get in touch</span>
+        <span class="progress-nav__btn-text">Contact</span>
+        <span class="progress-nav__btn-text is--duplicate">Contact</span>
       </a>
     </div>
   </LayoutTheContainer>
@@ -174,7 +228,7 @@ onBeforeUnmount(() => {
 }
 
 .progress-nav__wrapper {
-  background-color: #c9cce0;
+  backdrop-filter: blur(20px) brightness(0.5);
   border-radius: 50em;
   padding: .5em;
 }
@@ -212,6 +266,11 @@ onBeforeUnmount(() => {
   display: flex;
   position: relative;
   overflow: hidden;
+  color: white;
+  text-transform: uppercase;
+  --tw-tracking: calc(1px * -1);
+  letter-spacing: calc(1px * -1);
+  font-weight: 600;
 }
 
 .progress-nav__btn.is--before {
@@ -240,7 +299,6 @@ onBeforeUnmount(() => {
   align-items: center;
   height: 100%;
   font-size: 1.125em;
-  font-weight: 500;
   display: flex;
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   transform: translateY(0%) rotate(0.001deg);
@@ -252,7 +310,7 @@ onBeforeUnmount(() => {
 }
 
 .progress-nav__btn.is--active {
-  color: #2d336b;
+  color: var(--color-dark-800);
 }
 
 .progress-nav__btn.is--active .progress-nav__btn-text {
@@ -265,8 +323,8 @@ onBeforeUnmount(() => {
 }
 
 .progress-nav__contact-btn {
-  color: #fff;
-  background-color: #2d336b;
+  color: var(--color-dark-800);
+  background-color: white;
   border-radius: 50em;
   height: 3.5em;
   padding-left: 1.5em;
@@ -274,6 +332,10 @@ onBeforeUnmount(() => {
   text-decoration: none;
   position: relative;
   overflow: hidden;
+  text-transform: uppercase;
+  --tw-tracking: calc(1px * -1);
+  letter-spacing: calc(1px * -1);
+  font-weight: 600;
 }
 
 .section-resource {

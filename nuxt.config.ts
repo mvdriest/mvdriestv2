@@ -25,6 +25,7 @@ export default defineNuxtConfig({
   css: [
     './app/assets/css/tailwind.css',
     './app/assets/css/loader.css',
+    './app/assets/css/lenis.css',
   ],
 
   compatibilityDate: 'latest',

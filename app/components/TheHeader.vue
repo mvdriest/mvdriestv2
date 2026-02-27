@@ -1,11 +1,13 @@
 <script setup>
 import { gsap } from "gsap"
 import { SplitText } from "gsap/SplitText"
-import { ref, watch, nextTick } from "vue"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { ref, watch, nextTick, onMounted } from "vue"
 
-gsap.registerPlugin(SplitText)
+gsap.registerPlugin(SplitText, ScrollTrigger)
 
 const title = ref(null)
+const heroSection = ref(null)
 const loaderFinished = useState('loaderFinished')
 
 let split
@@ -33,6 +35,59 @@ const animate = async () => {
   })
 }
 
+const initHeroPadding = () => {
+  if (!heroSection.value) return
+
+  const video = heroSection.value.querySelector('video')
+  const overlay = heroSection.value.querySelector('.overlay-dark')
+
+  if (!video || !overlay) return
+
+  // Sync both video and overlay with same timeline
+  const timeline = gsap.timeline({
+    scrollTrigger: {
+      trigger: heroSection.value,
+      start: "top top",
+      end: "150% center",
+      scrub: 1,
+      markers: false
+    }
+  })
+
+  timeline.fromTo([video, overlay], 
+    {
+      transform: "scale(1)",
+      borderRadius: "0rem",
+      top: "0",
+      left: "0"
+    },
+    {
+      transform: "scale(0.92)",
+      borderRadius: "2rem",
+      top: "2rem",
+      left: "2rem",
+      ease: "none"
+    },
+    0 // same time
+  )
+
+  // Add padding to section for bg color to show
+  timeline.fromTo(heroSection.value,
+    {
+      padding: "0rem"
+    },
+    {
+      padding: "2rem",
+      ease: "none"
+    },
+    0 // same time
+  )
+}
+
+onMounted(() => {
+  initHeroPadding()
+})
+
 watch(loaderFinished, (finished) => {
   if (finished) {
     animate()
@@ -41,13 +96,13 @@ watch(loaderFinished, (finished) => {
 </script>
 
 <template>
-  <section class="relative h-dvh" >
+  <section ref="heroSection" class="relative h-dvh">
     <div class="relative flex items-end z-20 h-full">
       <LayoutTheContainer>
         <div class="flex items-end justify-start h-full relative z-10 mb-16">
           <div>
             <div class="flex gap-4 items-center">
-              <div class="backdrop-blur-3xl px-3 py-2 w-fit backdrop-brightness-650 rounded-md">
+              <div class="backdrop-blur-3xl px-3 py-2 w-fit backdrop-brightness-150 rounded-md">
                 <p class="text-white uppercase">Video</p>
               </div>
             </div>
@@ -62,8 +117,12 @@ watch(loaderFinished, (finished) => {
         </div>
       </LayoutTheContainer>
     </div>
-    <div class="absolute top-0 bg-black h-full w-full opacity-20  z-10" />
-    <img class="absolute top-0 w-full h-full object-cover z-0" src="/images/other/Auto-Atlas-Laptop.jpg" alt=""/> 
+    <div class="absolute top-0 bg-black h-full w-full opacity-20 z-10 overlay-dark" />
+    <video aria-hidden="true" class="absolute top-0 left-0 w-full h-full object-cover z-0" autoplay muted loop playsinline preload="auto">
+      <source src="/images/other/achtergrond.mp4" type="video/mp4" />
+      <!-- fallback image if video not supported -->
+      <img src="/images/other/Auto-Atlas-Laptop.jpg" alt="" />
+    </video>
     <!-- <div class="bg-[url('~/assets/image/Auto-Atlas-Laptop.jpg')] bg-cover bg-no-repeat h-[60rem] -mt-12 w-fullx">
       <div class="bg-black h-full w-full opacity-20 z-0" />
     </div> -->
@@ -71,6 +130,10 @@ watch(loaderFinished, (finished) => {
 </template>
 
 <style lang="scss" scoped>
+
+section {
+  background-color: var(--color-gray-200);
+}
 
 .hero-title {
   opacity: 0;
