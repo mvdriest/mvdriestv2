@@ -176,6 +176,25 @@ function initDraggableMarquee(gsap: any, Observer: any, ScrollTrigger: any) {
             alt=""
           />
         </div>
+        <div class="draggable-marquee__item relative">
+          <video
+            draggable="false"
+            autoplay
+            muted
+            loop
+            playsinline
+            width="336"
+            height="480"
+            class="draggable-marquee__item-img"
+          >
+            <source src="/images/other/ajax_short.mp4" type="video/mp4" />
+          </video>
+          <div class="absolute inset-0 flex items-end justify-start p-4 pointer-events-none">
+            <div class="flex items-center gap-2 px-3 py-2 rounded-full bg-white text-black font-bold text-xs shadow-lg">
+              <span>250k+ views</span>
+            </div>
+          </div>
+        </div>
         <div class="draggable-marquee__item">
           <img
             draggable="false"
@@ -194,23 +213,25 @@ function initDraggableMarquee(gsap: any, Observer: any, ScrollTrigger: any) {
             alt=""
           />
         </div>
-        <div class="draggable-marquee__item">
-          <img
+        <div class="draggable-marquee__item relative">
+          <video
             draggable="false"
-            loading="eager"
-            src="https://cdn.prod.website-files.com/694b0fb876617b13bea76eb8/694bc0b7b75b2b06a7e51ec3_marquee-fruit-6.avif"
+            autoplay
+            muted
+            loop
+            playsinline
+            width="336"
+            height="480"
             class="draggable-marquee__item-img"
-            alt=""
-          />
-        </div>
-        <div class="draggable-marquee__item">
-          <img
-            draggable="false"
-            loading="eager"
-            src="https://cdn.prod.website-files.com/694b0fb876617b13bea76eb8/694bc0b866f40e1da7eb53ba_marquee-fruit-7.avif"
-            class="draggable-marquee__item-img"
-            alt=""
-          />
+          >
+            <source src="/images/other/xpeng_short.mp4" type="video/mp4" />
+          </video>
+          <div class="absolute inset-0 flex items-start justify-end p-4 pointer-events-none">
+            <div class="flex items-center gap-2 px-4 py-2 rounded-full bg-black/85 text-white font-bold text-sm shadow-lg border border-white/20">
+              <span>⭐</span>
+              <span>14k+ weergaven</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>

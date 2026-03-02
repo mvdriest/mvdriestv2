@@ -30,6 +30,33 @@ onMounted(() => {
   }
   setContainerHeight()
 
+  // Growth animation BEFORE pinned section: expand from inert to full-screen
+  const growthTl = gsap.timeline({
+    scrollTrigger: {
+      trigger: container,
+      start: 'top 60%',
+      end: 'top top',
+      scrub: 1.2,
+      markers: false,
+      invalidateOnRefresh: true
+    }
+  })
+
+  growthTl.fromTo(
+    container,
+    {
+      transform: 'scale(0.85)',
+      borderRadius: '1.5rem',
+      padding: '1.5rem'
+    },
+    {
+      transform: 'scale(1)',
+      borderRadius: '0rem',
+      padding: '0rem',
+      ease: 'none'
+    }
+  )
+
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: container,
@@ -101,6 +128,7 @@ onMounted(() => {
   onUnmounted(() => {
     window.removeEventListener('resize', onResize)
     tl.kill()
+    growthTl.kill()
     ScrollTrigger.getAll()
       .filter(st => st.vars.trigger === container)
       .forEach(st => st.kill())
@@ -115,7 +143,7 @@ onMounted(() => {
     <div ref="containerRef" class="w-full min-h-svh relative overflow-hidden">
       <LayoutTheContainer>
         <div class="z-40 relative">
-          <div class="flex items-center justify-center flex-col h-full pt-24 md:pt-36 px-4">
+          <div class="flex items-center justify-center flex-col h-full pt-32 md:pt-48 px-4">
             <h1 class="z-50 text-4xl md:text-7xl uppercase font-bold max-w-200 leading-tight md:leading-18 text-center text-primary-600">Alles begint bij het verhaal.</h1>
             <p class="z-50 text-base md:text-2xl font-semibold text-center max-w-88 md:max-w-96 pt-4 font-family-helvetica -tracking-[1px] text-white">Of het nu branding, web of video is — zonder richting blijft het ruis.</p>
           </div>
