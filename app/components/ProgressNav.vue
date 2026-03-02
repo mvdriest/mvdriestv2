@@ -112,20 +112,29 @@ onMounted(async () => {
       const target = el.getAttribute('data-anchor-target') || el.getAttribute('data-progress-nav-target') || (el as HTMLAnchorElement).getAttribute('href') || null
       if (!target) return
 
-      if (lenis && typeof lenis.scrollTo === 'function') {
-        try {
-          lenis.scrollTo(target, {
-            easing: (x: number) => (x < 0.5 ? 8 * x * x * x * x : 1 - Math.pow(-2 * x + 2, 4) / 2),
-            duration: 1.0,
-            offset: 0
-          })
-        } catch (e) {
+      // Check if the anchor exists on the current page
+      const anchorExists = document.querySelector(target) !== null
+
+      if (anchorExists) {
+        // Anchor exists on current page - scroll to it
+        if (lenis && typeof lenis.scrollTo === 'function') {
+          try {
+            lenis.scrollTo(target, {
+              easing: (x: number) => (x < 0.5 ? 8 * x * x * x * x : 1 - Math.pow(-2 * x + 2, 4) / 2),
+              duration: 1.0,
+              offset: 0
+            })
+          } catch (e) {
+            const node = document.querySelector(target)
+            if (node) (node as HTMLElement).scrollIntoView({ behavior: 'smooth', block: 'start' })
+          }
+        } else {
           const node = document.querySelector(target)
           if (node) (node as HTMLElement).scrollIntoView({ behavior: 'smooth', block: 'start' })
         }
       } else {
-        const node = document.querySelector(target)
-        if (node) (node as HTMLElement).scrollIntoView({ behavior: 'smooth', block: 'start' })
+        // Anchor doesn't exist on current page - navigate to home with anchor
+        window.location.href = '/' + target
       }
     }
 
