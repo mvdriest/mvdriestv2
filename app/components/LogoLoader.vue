@@ -67,6 +67,7 @@
         wrap.value.querySelectorAll("[data-load-text]")
       )
   
+      const logoSvg = logo.querySelector('svg')
       const loadTimeline = gsap.timeline({
         defaults: {
           ease: "loader",
@@ -80,7 +81,7 @@
       loadTimeline
         .set(wrap.value, { display: "block" })
         .to(progressBar, { scaleX: 1 })
-        .to(logo, { clipPath: "inset(0% 0% 0% 0%)" }, "<")
+        .to(logoSvg, { clipPath: "inset(0% 0% 0% 0%)" }, "<")
         .to(container, { autoAlpha: 0, duration: 0.5 })
         .to(
           progressBar,

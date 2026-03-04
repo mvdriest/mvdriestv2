@@ -47,7 +47,28 @@ const sendForm = async (e: Event) => {
 </script>
 
 <template>
-  <section class="py-36 bg-dark-600">
+  <section class="pb-36 bg-dark-600">
+    <div class="w-full h-[60lvh] relative">
+      <div 
+        class="absolute inset-0 bg-cover flex items-center justify-center"
+        :style="{
+          backgroundImage: 'url(/images/other/camerafotoik.jpg)',
+          backgroundPosition: '100% 27%',
+          backgroundSize: '130%',
+          transform: 'scaleX(-1)',
+          filter: 'grayscale(100%) brightness(1) contrast(1.1)'
+        }"
+      >
+    
+      </div>
+      <LayoutTheContainer class="flex items-end justify-start h-full">
+          <h1 ref="title" class="hero-title uppercase text-4xl max-w-4xl leading-snug md:text-7xl 2xl:text-8xl font-bold text-left text-primary-600 md:leading-[4.5rem] 2xl:leading-[5.8rem] z-10 -tracking-[4px] absolute bottom-8 md:bottom-10">
+            Welk <br/>
+            merk mag ik <br/>
+            pimpen?  
+          </h1>
+      </LayoutTheContainer>
+    </div>
     <LayoutTheContainer>
       <div class="flex justify-between gap-20">
         <div>
