@@ -143,7 +143,7 @@ onMounted(() => {
     <div ref="containerRef" class="w-full min-h-svh relative overflow-hidden">
       <LayoutTheContainer>
         <div class="z-40 relative">
-          <div class="flex items-center justify-center flex-col h-full pt-32 md:pt-48 px-4">
+          <div class="flex items-center justify-center flex-col pt-20 md:pt-32 px-4">
             <h1 class="z-50 text-4xl md:text-7xl uppercase font-bold max-w-200 leading-tight md:leading-18 text-center text-primary-600">Alles begint bij het verhaal.</h1>
             <p class="z-50 text-base md:text-2xl font-semibold text-center max-w-88 md:max-w-96 pt-4 font-family-helvetica -tracking-[1px] text-white">Of het nu branding, web of video is — zonder richting blijft het ruis.</p>
           </div>

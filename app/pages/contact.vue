@@ -47,13 +47,13 @@ const sendForm = async (e: Event) => {
 </script>
 
 <template>
-  <section class="pb-36 bg-dark-600">
-    <div class="w-full h-[60lvh] relative">
+  <section class="pb-36 bg-gray-200">
+    <div class="w-full h-[50lvh] relative">
       <div 
         class="absolute inset-0 bg-cover flex items-center justify-center"
         :style="{
           backgroundImage: 'url(/images/other/camerafotoik.jpg)',
-          backgroundPosition: '100% 27%',
+          backgroundPosition: '100% 30%',
           backgroundSize: '130%',
           transform: 'scaleX(-1)',
           filter: 'grayscale(100%) brightness(1) contrast(1.1)'
@@ -70,76 +70,78 @@ const sendForm = async (e: Event) => {
       </LayoutTheContainer>
     </div>
     <LayoutTheContainer>
-      <div class="flex justify-between gap-20">
-        <div>
-          <h1
-            class="text-white text-4xl leading-snug md:text-6xl font-semibold md:max-w-2xl mb-8 md:leading-tight"
-          >
-            Laten we contacteren en uw idee tot leven brengen!
-          </h1>
-          <p class="text-white max-w-sm mb-8">
-            Ik ben een creatief persoon die zich bezig houdt met onder andere
-            grafisch ontwerpen.
-          </p>
-          <SocialsList color="yellow" direction="row" />
+      <div class="grid md:grid-cols-4 gap-20 mt-20">
+        <div class="flex items-start justify-top flex-col gap-8">
+          <div>
+            <p class="text-xl text-dark-800 font-semibold font-family-helvetica -tracking-[1px] uppercase opacity-70 pb-2">Email</p>
+            <CopyEmailButton email="info@mvdriest.nl" />
+          </div>
+          <div class="flex items-start justify-top flex-col">
+            <p class="text-xl text-dark-800 font-semibold font-family-helvetica -tracking-[1px] uppercase opacity-70 pb-2">Email</p>
+            <p class="text-xl text-dark-800 font-semibold font-family-helvetica -tracking-[1px] uppercase pb-2">Kvk: 12345678</p>
+            <p class="text-xl text-dark-800 font-semibold font-family-helvetica -tracking-[1px] uppercase">BTW: NL866034080B01</p>
+          </div>
         </div>
-        <div class="bg-white p-[40px] rounded-lg">
-          <h1
-            class="text-black max-w-md my-0 text-[2.5rem] leading-[50px] font-semibold mb-8"
-          >
-            Laten we contact maken
-          </h1>
-          <p
-            v-if="
-              contactStatus.type === 'success' || contactStatus.type === 'fail'
-            "
-            :class="
-              contactStatus.type === 'success'
-                ? 'text-green-500'
-                : 'text-red-500'
-            "
-          >
-            {{ contactStatus.message }}
-          </p>
-          <form class="flex flex-col space-y-5" @submit.prevent="sendForm">
-            <div class="flex flex-col space-y-1">
-              <label class="text-black font-semibold">
-                Uw volledige naam:
-              </label>
-              <input
-                type="name"
-                name="name"
-                class="border placeholder:text-slate-500 bg-gray-100 rounded-md p-2"
-                placeholder="John Doe"
-              >
-            </div>
-            <div class="flex flex-col space-y-1">
-              <label class="text-black font-semibold"> Uw email: </label>
-              <input
-                type="email"
-                name="email"
-                class="border placeholder:text-slate-500 bg-gray-100 rounded-md p-2"
-                placeholder="email@email.com"
-              >
-            </div>
-            <div class="flex flex-col space-y-1">
-              <label class="text-black font-semibold"> Uw bericht: </label>
-              <textarea
-                rows="5"
-                name="message"
-                class="border placeholder:text-slate-500 bg-gray-100 rounded-md p-2"
-                placeholder="Vertel wat over het project"
-              />
-            </div>
-            <button
-              type="submit"
-              class="bg-black text-primary-600 px-6 py-4 rounded-md"
+        <div class="col-span-3">
+          <div class="bg-white p-[40px] rounded-lg">
+            <h1
+              class="text-black max-w-3xl my-0 text-[2.0rem] leading-[50px] font-semibold mb-8"
             >
-              Verstuur
-            </button>
-          </form>
+              Laat een bericht achter
+            </h1>
+            <p
+              v-if="
+                contactStatus.type === 'success' || contactStatus.type === 'fail'
+              "
+              :class="
+                contactStatus.type === 'success'
+                  ? 'text-green-500'
+                  : 'text-red-500'
+              "
+            >
+              {{ contactStatus.message }}
+            </p>
+            <form class="flex flex-col space-y-5" @submit.prevent="sendForm">
+              <div class="flex flex-col space-y-1">
+                <label class="text-[18px] text-dark-800 font-semibold font-family-helvetica -tracking-[1px] uppercase">
+                  Uw volledige naam:
+                </label>
+                <input
+                  type="name"
+                  name="name"
+                  class="border placeholder:text-slate-300 bg-gray-100 rounded-md p-2"
+                  placeholder="John Doe"
+                >
+              </div>
+              <div class="flex flex-col space-y-1">
+                <label class="text-[18px] text-dark-800 font-semibold font-family-helvetica -tracking-[1px] uppercase"> Uw email: </label>
+                <input
+                  type="email"
+                  name="email"
+                  class="border placeholder:text-slate-300 bg-gray-100 rounded-md p-2"
+                  placeholder="email@email.com"
+                >
+              </div>
+              <div class="flex flex-col space-y-1">
+                <label class="text-[18px] text-dark-800 font-semibold font-family-helvetica -tracking-[1px] uppercase"> Uw bericht: </label>
+                <textarea
+                  rows="5"
+                  name="message"
+                  class="border placeholder:text-slate-300 bg-gray-100 rounded-md p-2"
+                  placeholder="Vertel wat over het project"
+                />
+              </div>
+              <button
+                type="submit"
+                class="bg-black text-primary-600 px-6 py-4 rounded-md"
+              >
+                Verstuur
+              </button>
+            </form>
+          </div>
         </div>
       </div>
+      
     </LayoutTheContainer>
   </section>
 </template>
