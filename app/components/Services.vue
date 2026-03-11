@@ -167,10 +167,10 @@ onUnmounted(() => {
   <div ref="rootRef">
     <section
       data-bg-zoom-init
-      class="flex min-h-svh flex-col items-center justify-center overflow-clip bg-dark-700 px-4 pt-[calc(50dvh-15em)] text-gray-200"
+      class="flex min-h-svh flex-col items-center justify-center overflow-clip bg-gray-200 px-4 pt-[calc(50dvh-15em)] text-gray-200"
     >
       <div class="w-full">
-        <h1 class="mx-auto mb-[-0.375em] mt-0 max-w-[7em] text-center text-[3.75em] leading-[0.95] font-normal tracking-[-0.04em] md:text-[7.5em]">
+        <h1 class="text-dark-600 uppercase mx-auto mb-[-0.375em] mt-0 max-w-[7em] text-center text-[3.75em] leading-[0.95] font-bold tracking-[-0.04em] md:text-8xl">
           Alles begint bij het
           <span class="text-dark-500"> verhaal</span>
         </h1>
