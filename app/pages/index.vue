@@ -334,6 +334,7 @@ onUnmounted(() => {
       
     </div>
     <!-- Services component -->
+     <Services />
      <FullscreenStackCards />
     <!-- <Service id="service" data-progress-nav-anchor /> -->
     <CTA />

@@ -10,6 +10,40 @@ type StackCard = {
   description: string
   image: string
   alt: string
+  backgroundColor: string
+  chips: [string, string, string, string]
+}
+
+const getReadableTextColor = (backgroundColor: string) => {
+  const normalized = backgroundColor.replace('#', '')
+  if (!/^[0-9a-fA-F]{6}$/.test(normalized)) return '#ffffff'
+
+  const red = Number.parseInt(normalized.slice(0, 2), 16)
+  const green = Number.parseInt(normalized.slice(2, 4), 16)
+  const blue = Number.parseInt(normalized.slice(4, 6), 16)
+
+  const luminance = (0.299 * red + 0.587 * green + 0.114 * blue) / 255
+  return luminance > 0.6 ? '#111111' : '#ffffff'
+}
+
+const getDescriptionColor = (backgroundColor: string) => {
+  const textColor = getReadableTextColor(backgroundColor)
+  return textColor === '#111111' ? 'rgba(17, 17, 17, 0.82)' : 'rgba(255, 255, 255, 0.9)'
+}
+
+const getChipStyle = (backgroundColor: string) => {
+  const textColor = getReadableTextColor(backgroundColor)
+  return textColor === '#111111'
+    ? {
+        color: '#111111',
+        backgroundColor: 'rgba(17, 17, 17, 0.08)',
+        borderColor: 'rgba(17, 17, 17, 0.2)'
+      }
+    : {
+        color: '#ffffff',
+        backgroundColor: 'rgba(255, 255, 255, 0.14)',
+        borderColor: 'rgba(255, 255, 255, 0.28)'
+      }
 }
 
 const cards: StackCard[] = [
@@ -17,25 +51,33 @@ const cards: StackCard[] = [
     title: 'VIDEO PRODUCTIE',
     description: 'Van social content tot cinematische merkfilms die blijven hangen.',
     image: '/images/projecten/autoatlas/gallery1/img2.jpeg',
-    alt: 'Video productie'
+    alt: 'Video productie',
+    backgroundColor: '#111216',
+    chips: ['Concepting', 'Regie', 'Opname', 'Montage']
   },
   {
     title: 'FOTOGRAFIE',
     description: 'Sterke beelden met karakter, licht en compositie die je verhaal dragen.',
     image: '/images/projecten/liveshot/header.jpg',
-    alt: 'Fotografie'
+    alt: 'Fotografie',
+    backgroundColor: '#FA7A2B',
+    chips: ['Portret', 'Product', 'Event', 'Nabewerking']
   },
   {
     title: 'BRANDING',
     description: 'Een herkenbare visuele identiteit die overal klopt en vertrouwen opbouwt.',
     image: '/images/projecten/branding-giftcard/header.jpg',
-    alt: 'Branding'
+    alt: 'Branding',
+    backgroundColor: '#ffffff',
+    chips: ['Logo design', 'Kleurenpalet', 'Typografie', 'Brand assets']
   },
   {
     title: 'WEBDESIGN & DEVELOPMENT',
     description: 'Snelle, sterke websites die goed voelen en gericht zijn op resultaat.',
     image: '/images/projecten/atlaspowerandgas/header.jpg',
-    alt: 'Webdesign en development'
+    alt: 'Webdesign en development',
+    backgroundColor: '#f5ff00',
+    chips: ['UX/UI design', 'Nuxt', 'CMS integratie', 'Performance']
   }
 ]
 
@@ -121,136 +163,44 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <section ref="sectionRef" class="fullscreen-stack" data-progress-nav-anchor>
-    <div class="fullscreen-stack__sticky">
-      <div ref="cardsRef" class="fullscreen-stack__cards">
+  <section ref="sectionRef" class="min-h-screen w-full bg-gray-200" data-progress-nav-anchor>
+    <div class="relative h-screen w-full p-12.5 max-[991px]:p-8.75 max-[640px]:p-5">
+      <div ref="cardsRef" class="relative h-full w-full">
         <article
           v-for="(card, index) in cards"
           :key="card.title"
           data-fullscreen-stack-card
-          class="fullscreen-stack__card"
+          class="absolute inset-0 overflow-hidden rounded-[1.75rem] origin-center will-change-[transform,opacity] backface-hidden max-[640px]:rounded-2xl"
+          :style="{ backgroundColor: card.backgroundColor }"
         >
-          <nuxt-img
-            class="fullscreen-stack__image"
-            :src="card.image"
-            :alt="card.alt"
-          />
+          <LayoutTheContainer> 
 
-          <div class="fullscreen-stack__overlay" />
-
-          <div class="fullscreen-stack__content">
-            <p class="fullscreen-stack__index">0{{ index + 1 }}</p>
-            <h2 class="fullscreen-stack__title">{{ card.title }}</h2>
-            <p class="fullscreen-stack__description font-family-helvetica">{{ card.description }}</p>
-          </div>
+            <div class="flex gap-5 justify-between z-2 md:py-24 h-full" :style="{ color: getReadableTextColor(card.backgroundColor) }">
+              <div class="flex flex-col items-stretch justify-between max-w-96 md:max-w-lg lg:max-w-xl h-full">
+                <h2 class="z-50 text-4xl md:text-7xl uppercase font-bold max-w-200 leading-tight md:leading-18 text-left">{{ card.title }}</h2>
+                <div>
+                  <p class="z-50 text-base md:text-2xl font-semibold text-left max-w-88 md:max-w-96 pt-4 font-family-helvetica -tracking-[1px] max-[640px]:max-w-[95%]" :style="{ color: getDescriptionColor(card.backgroundColor) }">{{ card.description }}</p>
+                  <ul class="mt-5 flex flex-wrap gap-2.5 max-w-96 md:max-w-md">
+                    <li
+                      v-for="chip in card.chips"
+                      :key="`${card.title}-${chip}`"
+                      class="rounded-full border px-3 py-1 text-xs md:text-sm font-semibold uppercase tracking-wide"
+                      :style="getChipStyle(card.backgroundColor)"
+                    >
+                      {{ chip }}
+                    </li>
+                  </ul>
+                </div>
+              </div>
+                <nuxt-img
+                class="h-72 w-56 object-cover rounded-md"
+                :src="card.image"
+                :alt="card.alt"
+              />
+            </div>
+          </LayoutTheContainer>
         </article>
       </div>
     </div>
   </section>
 </template>
-
-<style scoped>
-.fullscreen-stack {
-  width: 100%;
-  min-height: 100vh;
-}
-
-.fullscreen-stack__sticky {
-  width: 100%;
-  height: 100vh;
-  padding: 50px;
-  position: relative;
-}
-
-.fullscreen-stack__cards {
-  width: 100%;
-  height: 100%;
-  position: relative;
-}
-
-.fullscreen-stack__card {
-  position: absolute;
-  inset: 0;
-  border-radius: 1.75rem;
-  overflow: hidden;
-  background-color: #16171c;
-  transform-origin: 50% 50%;
-  will-change: transform, opacity;
-  backface-visibility: hidden;
-}
-
-.fullscreen-stack__image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.fullscreen-stack__overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(8, 9, 12, 0.08) 0%, rgba(8, 9, 12, 0.45) 58%, rgba(8, 9, 12, 0.84) 100%);
-}
-
-.fullscreen-stack__content {
-  position: absolute;
-  left: 2rem;
-  right: 2rem;
-  bottom: 2rem;
-  color: #fff;
-  z-index: 2;
-}
-
-.fullscreen-stack__index {
-  display: inline-flex;
-  margin: 0 0 0.8rem;
-  padding: 0.45rem 0.7rem;
-  border-radius: 999px;
-  background: rgba(0, 0, 0, 0.55);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-}
-
-.fullscreen-stack__title {
-  margin: 0;
-  text-transform: uppercase;
-  font-size: clamp(1.8rem, 4.7vw, 4rem);
-  line-height: 0.95;
-  letter-spacing: -0.02em;
-}
-
-.fullscreen-stack__description {
-  margin: 0.9rem 0 0;
-  max-width: 34rem;
-  font-size: clamp(0.95rem, 1.2vw, 1.12rem);
-  line-height: 1.45;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.9);
-}
-
-@media (max-width: 991px) {
-  .fullscreen-stack__sticky {
-    padding: 35px;
-  }
-}
-
-@media (max-width: 640px) {
-  .fullscreen-stack__sticky {
-    padding: 20px;
-  }
-
-  .fullscreen-stack__card {
-    border-radius: 1rem;
-  }
-
-  .fullscreen-stack__content {
-    left: 1.1rem;
-    right: 1.1rem;
-    bottom: 1.1rem;
-  }
-
-  .fullscreen-stack__description {
-    max-width: 95%;
-  }
-}
-</style>
