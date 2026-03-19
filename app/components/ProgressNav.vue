@@ -182,29 +182,25 @@ onBeforeUnmount(() => {
           <div class="progress-nav__indicator" />
           <div data-progress-nav-target="#top" class="progress-nav__btn is--before" />
           <a data-anchor-target="#introduction" data-progress-nav-target="#introduction" href="#introduction" class="progress-nav__btn">
-            <span class="progress-nav__btn-text font-family-helvetica font-semibold ">Over mij</span>
-            <span class="progress-nav__btn-text is--duplicate font-family-helvetica font-semibold ">Over mij</span>
-          </a>
-          <a data-progress-nav-target="#concept" href="#concept" class="progress-nav__btn">
             <span class="progress-nav__btn-text font-family-helvetica font-semibold ">Mijn werk</span>
             <span class="progress-nav__btn-text is--duplicate font-family-helvetica font-semibold ">Mijn werk</span>
+          </a>
+          <a data-progress-nav-target="#concept" href="#concept" class="progress-nav__btn">
+            <span class="progress-nav__btn-text font-family-helvetica font-semibold ">Over mij</span>
+            <span class="progress-nav__btn-text is--duplicate font-family-helvetica font-semibold ">Over mij</span>
           </a>
           <a data-progress-nav-target="#service" href="#service" class="progress-nav__btn">
             <span class="progress-nav__btn-text font-family-helvetica font-semibold">Services</span>
             <span class="progress-nav__btn-text is--duplicate font-family-helvetica font-semibold">Services</span>
           </a>
-          <a data-progress-nav-target="#result" href="#result" class="progress-nav__btn">
-            <span class="progress-nav__btn-text font-family-helvetica font-semibold">Frequentie</span>
-            <span class="progress-nav__btn-text is--duplicate font-family-helvetica font-semibold">Frequentie</span>
-          </a>
           <div data-progress-nav-target="#bottom" class="progress-nav__btn is--after" />
         </div>
       </div>
 
-      <a href="#bottom" class="progress-nav__contact-btn">
+      <NuxtLink to="/contact" class="progress-nav__contact-btn">
         <span class="progress-nav__btn-text">Contact</span>
         <span class="progress-nav__btn-text is--duplicate">Contact</span>
-      </a>
+      </NuxtLink>
     </div>
   </LayoutTheContainer>
   </nav>

@@ -274,8 +274,6 @@ onUnmounted(() => {
       <TheHeader />
     </div>
     <section
-      id="introduction"
-      data-progress-nav-anchor
       class="py-36 bg-gray-200 relative"
     >
       <LayoutTheContainer> 
@@ -325,7 +323,7 @@ onUnmounted(() => {
       <HomeSectionsServicesSection class="py-[150px]" />
     </section> -->
     <section
-      id="concept"
+      id="introduction"
       data-progress-nav-anchor
       class="py-36"
     >
@@ -334,11 +332,13 @@ onUnmounted(() => {
     <div>
       
     </div>
-    <AboutMe />
+    <AboutMe id="concept"
+      data-progress-nav-anchor/>
     <!-- Services component -->
      <!-- <Services /> -->
      <!-- <Service id="service" data-progress-nav-anchor /> -->
-     <FullscreenStackCards />
+     <FullscreenStackCards id="service"
+      data-progress-nav-anchor />
     <CTA />
     <div id="bottom" data-progress-nav-anchor />
   </div>

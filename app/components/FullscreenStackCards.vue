@@ -72,8 +72,8 @@ const cards: StackCard[] = [
     chips: ['Portret', 'Product', 'Event', 'Nabewerking'],
     kind: 'images',
     images: [
-      '/images/other/ikfoto.jpg',
-      '/images/other/camerafotoik.jpg',
+      '/images/other/sanne.jpg',
+      '/images/other/sanne_stoelen.jpg',
       '/images/other/utrecht1.jpg',
       '/images/other/utrecht2.jpg'
     ]
@@ -86,10 +86,11 @@ const cards: StackCard[] = [
     chips: ['Logo design', 'Kleurenpalet', 'Typografie', 'Brand assets'],
     kind: 'images',
     images: [
-      '/images/other/mockup_logo.jpg',
-      '/images/other/mockup_businesscard.jpg',
+      '/images/other/batavia_social.jpg',
       '/images/other/mockup_bord.jpg',
-      '/images/other/mockup_bus.jpg'
+      '/images/other/FCUH-Mockup.jpg',
+      '/images/other/mockup_businesscard.jpg',
+      '/images/other/batavia_vlag.jpg'
     ]
   },
   {
@@ -100,10 +101,10 @@ const cards: StackCard[] = [
     chips: ['UX/UI design', 'Nuxt', 'CMS integratie', 'Performance'],
     kind: 'images',
     images: [
-      '/images/other/Auto-Atlas-Laptop.jpg',
-      '/images/other/home_aa.jpg',
-      '/images/other/aa_overzicht.jpg',
-      '/images/other/aa_blog1.jpg'
+      '/images/other/aamockup.jpg',
+      '/images/other/batavia_laptop.jpg',
+      '/images/other/aa_mobiel.jpg',
+      '/images/other/o2_laptop.jpg'
     ]
   }
 ]
@@ -240,7 +241,7 @@ onUnmounted(() => {
               <div class="order-1 md:order-2 fullscreen-stack-cards__media">
                 <template v-if="card.kind === 'video'">
                   <video
-                    class="fullscreen-stack-cards__video w-full object-cover rounded-md"
+                    class="fullscreen-stack-cards__video w-full object-cover rounded-lg"
                     autoplay
                     muted
                     loop
@@ -292,10 +293,10 @@ onUnmounted(() => {
 }
 
 :deep(.fullscreen-stack-cards__image-cycle .image-cycle-collection__list) {
-  border-radius: 0.375rem;
+  border-radius: 1rem;
 }
 
 :deep(.fullscreen-stack-cards__image-cycle .image-cycle-collection__before) {
-  border-radius: 0.375rem;
+  border-radius: 1rem;
 }
 </style>

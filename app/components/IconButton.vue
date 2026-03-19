@@ -1,5 +1,5 @@
 <template>
-  <a :href="href" class="btn-icon-link" @click.prevent="onClick">
+  <a :href="href" class="btn-icon-link" @click="onClick">
     <div class="btn-icon-content" :class="{'color--white': variant === 'white'}">
       <div class="btn-icon-content__mask">
         <span data-button-anim-target class="btn-icon-content__text">{{ label }}</span>
