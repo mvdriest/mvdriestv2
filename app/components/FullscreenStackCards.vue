@@ -8,11 +8,19 @@ gsap.registerPlugin(ScrollTrigger)
 type StackCard = {
   title: string
   description: string
-  image: string
   alt: string
   backgroundColor: string
   chips: [string, string, string, string]
-}
+} & (
+  | {
+      kind: 'video'
+      src: string
+    }
+  | {
+      kind: 'images'
+      images: string[]
+    }
+)
 
 const getReadableTextColor = (backgroundColor: string) => {
   const normalized = backgroundColor.replace('#', '')
@@ -50,34 +58,53 @@ const cards: StackCard[] = [
   {
     title: 'VIDEO PRODUCTIE',
     description: 'Van social content tot cinematische merkfilms die blijven hangen.',
-    image: '/images/projecten/autoatlas/gallery1/img2.jpeg',
     alt: 'Video productie',
     backgroundColor: '#111216',
-    chips: ['Concepting', 'Regie', 'Opname', 'Montage']
+    chips: ['Concepting', 'Regie', 'Opname', 'Montage'],
+    kind: 'video',
+    src: '/images/other/porsche_short.mp4'
   },
   {
     title: 'FOTOGRAFIE',
     description: 'Sterke beelden met karakter, licht en compositie die je verhaal dragen.',
-    image: '/images/projecten/liveshot/header.jpg',
     alt: 'Fotografie',
     backgroundColor: '#FA7A2B',
-    chips: ['Portret', 'Product', 'Event', 'Nabewerking']
+    chips: ['Portret', 'Product', 'Event', 'Nabewerking'],
+    kind: 'images',
+    images: [
+      '/images/other/ikfoto.jpg',
+      '/images/other/camerafotoik.jpg',
+      '/images/other/utrecht1.jpg',
+      '/images/other/utrecht2.jpg'
+    ]
   },
   {
     title: 'BRANDING',
     description: 'Een herkenbare visuele identiteit die overal klopt en vertrouwen opbouwt.',
-    image: '/images/projecten/branding-giftcard/header.jpg',
     alt: 'Branding',
     backgroundColor: '#ffffff',
-    chips: ['Logo design', 'Kleurenpalet', 'Typografie', 'Brand assets']
+    chips: ['Logo design', 'Kleurenpalet', 'Typografie', 'Brand assets'],
+    kind: 'images',
+    images: [
+      '/images/other/mockup_logo.jpg',
+      '/images/other/mockup_businesscard.jpg',
+      '/images/other/mockup_bord.jpg',
+      '/images/other/mockup_bus.jpg'
+    ]
   },
   {
     title: 'WEBDESIGN & DEVELOPMENT',
     description: 'Snelle, sterke websites die goed voelen en gericht zijn op resultaat.',
-    image: '/images/projecten/atlaspowerandgas/header.jpg',
     alt: 'Webdesign en development',
     backgroundColor: '#f5ff00',
-    chips: ['UX/UI design', 'Nuxt', 'CMS integratie', 'Performance']
+    chips: ['UX/UI design', 'Nuxt', 'CMS integratie', 'Performance'],
+    kind: 'images',
+    images: [
+      '/images/other/Auto-Atlas-Laptop.jpg',
+      '/images/other/home_aa.jpg',
+      '/images/other/aa_overzicht.jpg',
+      '/images/other/aa_blog1.jpg'
+    ]
   }
 ]
 
@@ -173,14 +200,30 @@ onUnmounted(() => {
           class="absolute inset-0 overflow-hidden rounded-[1.75rem] origin-center will-change-[transform,opacity] backface-hidden max-[640px]:rounded-2xl"
           :style="{ backgroundColor: card.backgroundColor }"
         >
-          <LayoutTheContainer> 
+          <LayoutTheContainer class="h-full">
 
-            <div class="flex gap-5 justify-between z-2 md:py-24 h-full" :style="{ color: getReadableTextColor(card.backgroundColor) }">
-              <div class="flex flex-col items-stretch justify-between max-w-96 md:max-w-lg lg:max-w-xl h-full">
+            <div class="flex flex-col md:flex-row gap-4 md:gap-8 justify-start md:justify-between z-2 p-7.5 h-full" :style="{ color: getReadableTextColor(card.backgroundColor) }">
+              <div class="order-2 flex flex-col items-stretch flex-1 min-h-0 w-full md:w-auto max-w-full md:max-w-lg lg:max-w-xl h-full">
                 <h2 class="z-50 text-4xl md:text-7xl uppercase font-bold max-w-200 leading-tight md:leading-18 text-left">{{ card.title }}</h2>
-                <div>
-                  <p class="z-50 text-base md:text-2xl font-semibold text-left max-w-88 md:max-w-96 pt-4 font-family-helvetica -tracking-[1px] max-[640px]:max-w-[95%]" :style="{ color: getDescriptionColor(card.backgroundColor) }">{{ card.description }}</p>
-                  <ul class="mt-5 flex flex-wrap gap-2.5 max-w-96 md:max-w-md">
+
+                <!-- Mobile: description under H2, then chips -->
+                <div class="mt-4 md:hidden">
+                  <p class="z-50 text-base font-semibold text-left max-w-88 font-family-helvetica -tracking-[1px]" :style="{ color: getDescriptionColor(card.backgroundColor) }">{{ card.description }}</p>
+                  <ul class="mt-4 flex flex-wrap gap-2.5 max-w-96">
+                    <li
+                      v-for="chip in card.chips"
+                      :key="`${card.title}-${chip}`"
+                      class="rounded-full border px-3 py-1 text-xs font-semibold uppercase tracking-wide"
+                      :style="getChipStyle(card.backgroundColor)"
+                    >
+                      {{ chip }}
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Desktop: keep chips above description at the bottom -->
+                <div class="hidden md:block mt-auto">
+                  <ul class="flex flex-wrap gap-2.5 max-w-96 md:max-w-md">
                     <li
                       v-for="chip in card.chips"
                       :key="`${card.title}-${chip}`"
@@ -190,13 +233,34 @@ onUnmounted(() => {
                       {{ chip }}
                     </li>
                   </ul>
+                  <p class="z-50 mt-4 text-base md:text-2xl font-semibold text-left max-w-88 md:max-w-96 font-family-helvetica -tracking-[1px] max-[640px]:max-w-[95%]" :style="{ color: getDescriptionColor(card.backgroundColor) }">{{ card.description }}</p>
                 </div>
               </div>
-                <nuxt-img
-                class="h-72 w-56 object-cover rounded-md"
-                :src="card.image"
-                :alt="card.alt"
-              />
+
+              <div class="order-1 fullscreen-stack-cards__media">
+                <template v-if="card.kind === 'video'">
+                  <video
+                    class="fullscreen-stack-cards__video w-full object-cover rounded-md"
+                    autoplay
+                    muted
+                    loop
+                    playsinline
+                    preload="auto"
+                    :key="card.src"
+                  >
+                    <source :src="card.src" type="video/mp4" />
+                  </video>
+                </template>
+
+                <template v-else>
+                  <ImageCycle
+                    class="fullscreen-stack-cards__image-cycle"
+                    :images="card.images"
+                    :alt="card.alt"
+                    portrait
+                  />
+                </template>
+              </div>
             </div>
           </LayoutTheContainer>
         </article>
@@ -204,3 +268,34 @@ onUnmounted(() => {
     </div>
   </section>
 </template>
+
+<style scoped>
+.fullscreen-stack-cards__media {
+  width: clamp(10rem, 62vw, 14rem);
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-inline: 0;
+}
+
+@media (min-width: 768px) {
+  .fullscreen-stack-cards__media {
+    width: clamp(15rem, 24vw, 22rem);
+    max-width: none;
+    align-items: flex-start;
+  }
+}
+
+.fullscreen-stack-cards__video {
+  aspect-ratio: 7 / 9;
+}
+
+:deep(.fullscreen-stack-cards__image-cycle .image-cycle-collection__list) {
+  border-radius: 0.375rem;
+}
+
+:deep(.fullscreen-stack-cards__image-cycle .image-cycle-collection__before) {
+  border-radius: 0.375rem;
+}
+</style>

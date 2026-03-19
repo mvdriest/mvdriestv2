@@ -6,12 +6,14 @@ interface Props {
   duration?: number | string;
   alt?: string;
   tall?: boolean;
+  portrait?: boolean;
 }
 
 const props = withDefaults(defineProps<Props>(), {
   duration: 2.5,
   alt: '',
-  tall: false
+  tall: false,
+  portrait: false
 })
 
 const listRef = ref<HTMLElement | null>(null)
@@ -107,7 +109,10 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="image-cycle-collection" :class="{ 'image-cycle-collection--tall': tall }">
+  <div
+    class="image-cycle-collection"
+    :class="{ 'image-cycle-collection--tall': tall, 'image-cycle-collection--portrait': portrait }"
+  >
     <div class="image-cycle-collection__before" />
 
     <div
@@ -119,7 +124,7 @@ onUnmounted(() => {
         v-for="(image, index) in images"
         :key="`${image}-${index}`"
         class="image-cycle-collection__item image-cycle-collection__img"
-        data-image-cycle-item="not-active"
+        :data-image-cycle-item="index === 0 ? 'active' : 'not-active'"
       >
         <img
           :src="image"
@@ -133,7 +138,7 @@ onUnmounted(() => {
 
 <style scoped>
 .image-cycle-collection {
-  width: min(95vw, 60em);
+  width: 100%;
   max-width: 100%;
   position: relative;
 }
@@ -144,6 +149,10 @@ onUnmounted(() => {
 
 .image-cycle-collection--tall .image-cycle-collection__before {
   padding-top: 75%;
+}
+
+.image-cycle-collection--portrait .image-cycle-collection__before {
+  padding-top: 128.571%;
 }
 
 .image-cycle-collection__list {
