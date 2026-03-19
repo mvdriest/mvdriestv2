@@ -15,6 +15,7 @@ const skills = [
 
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import CTA from "~/components/CTA.vue"
+import AboutMe from "~/components/AboutMe.vue"
 
 gsap.registerPlugin(SplitText, ScrollTrigger)
 
@@ -280,7 +281,7 @@ onUnmounted(() => {
       <LayoutTheContainer> 
         <div class="flex flex-col items-center gap-12 text-dark-800">
           <h1 class="text-7xl uppercase font-bold max-w-[66rem] leading-tight text-center">Ik ben <br/>jouw <span class="h-fit">   <nuxt-img
-            class=" -mt-1 w-32 h-fit inline-block align-middle -ml-4 mr-1 -3 -mt-4"
+            class="-mt-4 w-32 h-fit inline-block align-middle -ml-4 mr-1"
             src="/images/other/camera.png"
             alt="Star"
           /></span>allround <br/> creative.</h1>
@@ -333,10 +334,11 @@ onUnmounted(() => {
     <div>
       
     </div>
+    <AboutMe />
     <!-- Services component -->
-     <Services />
+     <!-- <Services /> -->
+     <!-- <Service id="service" data-progress-nav-anchor /> -->
      <FullscreenStackCards />
-    <!-- <Service id="service" data-progress-nav-anchor /> -->
     <CTA />
     <div id="bottom" data-progress-nav-anchor />
   </div>

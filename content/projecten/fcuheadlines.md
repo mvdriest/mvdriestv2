@@ -1,21 +1,114 @@
 ---
-title: 'FCUHeadlines'
-tags: ['Web design', 'Branding']
-link: 'https://www.autoatlas.nl'
-projectAssetsDir: 'fcuheadlines'
+title: "Voetbal accounts"
+tags: ["VIDEO EDITING", "VISUAL DESIGN"]
+description: "Ik geloof in een wereld waar sterke websites, cinematische video, krachtige fotografie en consistente branding je merk laten opvallen zoals het verdient."
+link: "https://www.autoatlas.nl"
+projectAssetsDir: "fcuheadlines"
 ---
-# FCUHeadlines
 
-::div{.max-w-2xl}
-Welkom in de wereld van leidingen en kabels. Daar waar met een netwerk van mensen, structuur gegeven wordt aan het netwerk van boven- en ondergrondse infra. Van Voskuilen Woudenberg houd zich dag in dag uit, sinds 1964 bezig met het aanleggen en onderhouden van connecties via gas-, water-, elektra- en telecomleidingen en kabels.
+::div{.case-row}
+::div{.case-row-title}
+
+## Intro
+
 ::
 
-:image-gallery{baseDir="autoatlas" gallery="gallery1" :images='["img1.jpeg", "img2.jpeg", "img3.jpeg"]'}
+::div{.case-row-body}
 
-## De uitdaging
+<p class="case-text-lg">Voor verschillende voetbalaccounts ontwikkelde ik visuals en videomontages gericht op supporters.</p>
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis at tellus at urna condimentum mattis pellentesque id nibh. Lorem ipsum dolor sit amet consectetur adipiscing. Et odio pellentesque diam volutpat. Morbi tincidunt augue interdum velit euismod in pellentesque massa placerat. Adipiscing elit pellentesque habitant morbi tristique senectus. Auctor urna nunc id cursus metus aliquam eleifend mi in. Ipsum dolor sit amet consectetur adipiscing. At augue eget arcu dictum varius duis. Aliquam sem fringilla ut morbi tincidunt augue interdum velit. Cursus euismod quis viverra nibh cras pulvinar mattis. Risus in hendrerit gravida rutrum quisque non. In ornare quam viverra orci sagittis eu volutpat odio. Tellus in hac habitasse platea. Interdum posuere lorem ipsum dolor sit amet. Tincidunt eget nullam non nisi est sit amet facilisis magna. Justo laoreet sit amet cursus sit amet. Purus viverra accumsan in nisl nisi scelerisque.
+<p class="case-text-sm">De content draaide om wedstrijdmomenten, transfers en de sfeer rondom het voetbal.</p>
+::
+::
 
-## De uitdaging
+:image-gallery{baseDir="autoatlas" gallery="gallery1" :images='["/images/other/FCUH-mockup.jpg"]'}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis at tellus at urna condimentum mattis pellentesque id nibh. Lorem ipsum dolor sit amet consectetur adipiscing. Et odio pellentesque diam volutpat. Morbi tincidunt augue interdum velit euismod in pellentesque massa placerat. Adipiscing elit pellentesque habitant morbi tristique senectus. Auctor urna nunc id cursus metus aliquam eleifend mi in. Ipsum dolor sit amet consectetur adipiscing. At augue eget arcu dictum varius duis. Aliquam sem fringilla ut morbi tincidunt augue interdum velit. Cursus euismod quis viverra nibh cras pulvinar mattis. Risus in hendrerit gravida rutrum quisque non. In ornare quam viverra orci sagittis eu volutpat odio. Tellus in hac habitasse platea. Interdum posuere lorem ipsum dolor sit amet. Tincidunt eget nullam non nisi est sit amet facilisis magna. Justo laoreet sit amet cursus sit amet. Purus viverra accumsan in nisl nisi scelerisque.
+::div{.case-row .case-row--spaced}
+::div{.case-row-title}
+
+## Video & Content
+
+::
+
+::div{.case-row-body}
+
+<p class="case-text-lg">Ik werkte onder andere aan de volgende accounts:</p>
+
+<div class="case-text-md">
+	<ul>
+		<li>Orangefootbal (TikTok)</li>
+		<li>FCU_Fans (Instagram)</li>
+		<li>FCUHeadlines (Instagram)</li>
+	</ul>
+	<p class="case-text-md">Voor de Instagramaccounts ontwikkelde ik verschillende soorten visuals zoals matchday graphics, transferaankondigingen en korte videoclips.</p>
+</div>
+
+<p class="case-text-sm">
+De content was gericht op snelle actualiteit en moest direct herkenbaar zijn voor supporters.
+</p>
+::
+::
+::div{.case-media}
+:video-grid{:videos='[
+{"title":"FCUHeadlines 1","url":"https://www.instagram.com/tv/CZEJjVnBxC0/"},
+{"title":"FCUHeadlines 2","url":"https://www.instagram.com/p/CZFO2NuK5GE/"},
+{"title":"FCUHeadlines 3","url":"https://www.instagram.com/p/CSjVtEgKof8/"}
+]' :columns="3"}
+::
+::div{.case-media}
+:video-grid{:videos='[
+{"title":"FCU_Fans 1","url":"https://www.instagram.com/p/Ch_xN8fKUGe/"},
+{"title":"FCU_Fans 2","url":"https://www.instagram.com/p/CdvJC_yK6F9/"},
+{"title":"FCU_Fans 3","url":"https://www.instagram.com/p/Cfbk4HOqSOw/"}
+]' :columns="3"}
+::
+::div{.case-row .case-row--spaced}
+::div{.case-row-title}
+
+## Video & Storytelling
+
+::
+
+::div{.case-row-body}
+
+<p class="case-text-lg">Voor het TikTok-account Orangefootbal richtte ik me vooral op videomontage en storytelling.</p>
+<p class="case-text-md">Door het gebruik van muziek, ritme en sfeerbeelden probeerde ik de emotie rondom voetbalmomenten vast te leggen. Eén van de video’s, gericht op de beleving rondom AFC Ajax, behaalde meer dan 250.000 weergaven en kreeg veel positieve reacties van kijkers.</p>
+::
+::
+
+::div{.case-media}
+:shorts-spotlight{:items='[
+{"title":"AFC Ajax beleving","views":"250K+ views","src":"/images/other/ajax_short.mp4","href":"https://www.tiktok.com/@orangefootbal/video/7470610747098303767?is_from_webapp=1&sender_device=pc"}
+]'}
+::
+
+::div{.case-row .case-row--spaced}
+::div{.case-row-title}
+
+## Resultaat
+
+::
+
+::div{.case-row-body}
+
+<p class="case-text-lg">De accounts groeiden uit tot actieve communities van supporters die regelmatig interactie hadden met de content.</p>
+<p class="case-text-md">Dit project laat mijn ervaring zien met het maken van visuele content en videomontage voor social media, waarbij snelheid, herkenbaarheid en betrokkenheid van het publiek centraal staan.</p>
+::
+::
+
+::div{.case-kpis}
+::div{.case-kpi}
+
+ <p class="case-text-lg pb-0">250.000+ views op een TikTok video</p>
+::
+
+::div{.case-kpi .case-kpi--orange}
+
+ <p class="case-text-lg">2.456 volgers op FCU_Fans</p>
+::
+
+::div{.case-kpi .case-kpi--blue}
+
+ <p class="case-text-lg pb-0">Visuele stijl voor matchday en content</p>
+::
+::
