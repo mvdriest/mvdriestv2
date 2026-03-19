@@ -200,10 +200,10 @@ onUnmounted(() => {
           class="absolute inset-0 overflow-hidden rounded-[1.75rem] origin-center will-change-[transform,opacity] backface-hidden max-[640px]:rounded-2xl"
           :style="{ backgroundColor: card.backgroundColor }"
         >
-          <LayoutTheContainer class="h-full">
+          <LayoutTheContainer class="h-full px-0 py-10 md:py-24">
 
-            <div class="flex flex-col md:flex-row gap-4 md:gap-8 justify-start md:justify-between z-2 p-7.5 h-full" :style="{ color: getReadableTextColor(card.backgroundColor) }">
-              <div class="order-2 flex flex-col items-stretch flex-1 min-h-0 w-full md:w-auto max-w-full md:max-w-lg lg:max-w-xl h-full">
+            <div class="flex flex-col md:flex-row gap-4 md:gap-8 justify-start md:justify-between z-2 h-full" :style="{ color: getReadableTextColor(card.backgroundColor) }">
+              <div class="order-2 md:order-1 flex flex-col items-stretch flex-1 min-h-0 w-full md:w-auto max-w-full md:max-w-lg lg:max-w-xl h-full">
                 <h2 class="z-50 text-4xl md:text-7xl uppercase font-bold max-w-200 leading-tight md:leading-18 text-left">{{ card.title }}</h2>
 
                 <!-- Mobile: description under H2, then chips -->
@@ -237,7 +237,7 @@ onUnmounted(() => {
                 </div>
               </div>
 
-              <div class="order-1 fullscreen-stack-cards__media">
+              <div class="order-1 md:order-2 fullscreen-stack-cards__media">
                 <template v-if="card.kind === 'video'">
                   <video
                     class="fullscreen-stack-cards__video w-full object-cover rounded-md"
