@@ -278,8 +278,8 @@ onUnmounted(() => {
     >
       <LayoutTheContainer> 
         <div class="flex flex-col items-center gap-12 text-dark-800">
-          <h1 class="text-7xl uppercase font-bold max-w-[66rem] leading-tight text-center">Ik ben <br/>jouw <span class="h-fit">   <nuxt-img
-            class="-mt-4 w-32 h-fit inline-block align-middle -ml-4 mr-1"
+          <h1 class="text-5xl md:text-7xl uppercase font-bold max-w-[66rem] leading-tight text-center">Ik ben <br/>jouw <span class="h-fit">   <nuxt-img
+            class="-mt-4 w-12 md:w-32 md:h-fit inline-block align-middle -ml-4 mr-1"
             src="/images/other/camera.png"
             alt="Star"
           /></span>allround <br/> creative.</h1>
@@ -323,7 +323,7 @@ onUnmounted(() => {
       <HomeSectionsServicesSection class="py-[150px]" />
     </section> -->
     <section
-      id="introduction"
+      id="mijnwerk"
       data-progress-nav-anchor
       class="py-36"
     >
@@ -332,12 +332,12 @@ onUnmounted(() => {
     <div>
       
     </div>
-    <AboutMe id="concept"
+    <AboutMe id="overmij"
       data-progress-nav-anchor/>
     <!-- Services component -->
      <!-- <Services /> -->
      <!-- <Service id="service" data-progress-nav-anchor /> -->
-     <FullscreenStackCards id="service"
+     <FullscreenStackCards id="services"
       data-progress-nav-anchor />
     <CTA />
     <div id="bottom" data-progress-nav-anchor />

@@ -1,7 +1,7 @@
 <template>
     <section class="relative flex flex-col items-center justify-center gap-12 px-4 py-24 bg-gray-200">
         <LayoutTheContainer>
-            <h1 class="text-7xl uppercase font-bold max-w-3xl text-left">
+            <h1 class="text-5xl md:text-7xl uppercase font-bold max-w-3xl text-left">
             Alles begint bij het verhaal.
             </h1>
             <div class="grid md:grid-cols-2 gap-12 mt-12">

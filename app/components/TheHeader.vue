@@ -101,7 +101,7 @@ watch(loaderFinished, (finished) => {
       <LayoutTheContainer>
         <div class="flex items-end justify-start h-full relative z-10 mb-16">
           <div>
-            <div class="flex gap-4 items-center">
+            <div class="flex gap-4 items-center flex-wrap">
               <div class="backdrop-blur-3xl px-3 py-2 w-fit backdrop-brightness-200 rounded-md">
                 <p class="text-xl text-white font-semibold font-family-helvetica -tracking-[1px] uppercase">Video</p>
               </div>
@@ -115,7 +115,7 @@ watch(loaderFinished, (finished) => {
                 <p class="text-xl text-white font-semibold font-family-helvetica -tracking-[1px] uppercase">Branding</p>
               </div>
             </div>
-            <h1 ref="title" class="hero-title text-4xl max-w-3xl leading-snug md:text-8xl font-bold text-left text-primary-600 mt-8 md:leading-[5.8rem] z-10 -tracking-[4px]">
+            <h1 ref="title" class="hero-title text-4xl max-w-3xl leading-snug md:text-8xl font-bold text-left text-primary-600 mt-8 md:leading-[5.8rem] z-10 md:-tracking-[4px]">
               Jouw merk is 
               te cool voor standaard. 
             </h1>

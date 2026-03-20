@@ -165,262 +165,93 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <nav class="progress-nav">
+  <nav class="fixed inset-x-0 top-0 z-40 w-full px-3 py-2 md:p-8">
     <LayoutTheContainer>
 
-    <div class="progress-nav__inner">
-      <a href="#top" class="progress-nav__logo">
+    <div class="relative flex items-center justify-between gap-2 md:gap-0">
+      <a href="#top" class="shrink-0 text-inherit no-underline">
         <nuxt-img
               src="/images/other/mvdriest.svg"
               alt="logo"
-              class="progress-nav__logo-svg"
+              class="w-14 md:w-24"
             />
       </a>
 
-      <div class="progress-nav__wrapper">
-        <div data-progress-nav-list class="progress-nav__list">
-          <div class="progress-nav__indicator" />
-          <div data-progress-nav-target="#top" class="progress-nav__btn is--before" />
-          <a data-anchor-target="#introduction" data-progress-nav-target="#introduction" href="#introduction" class="progress-nav__btn">
-            <span class="progress-nav__btn-text font-family-helvetica font-semibold ">Mijn werk</span>
-            <span class="progress-nav__btn-text is--duplicate font-family-helvetica font-semibold ">Mijn werk</span>
+      <div class="fixed inset-x-0 bottom-0 z-40 w-full bg-transparent px-3 py-2 md:relative md:inset-auto md:bottom-auto md:w-auto md:px-0 md:py-0">
+        <div class="backdrop-blur-xl backdrop-brightness-50 md:rounded-full rounded-none md:p-2 p-0">
+          <div
+            data-progress-nav-list
+            class="relative flex w-full items-center overflow-x-auto overflow-y-hidden rounded-full md:w-auto md:overflow-hidden [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          >
+            <div class="progress-nav__indicator absolute left-[-2.5em] z-20 h-10 w-10 rounded-full bg-white transition-all duration-1200 ease-[cubic-bezier(0.16,1,0.3,1)]" />
+
+            <div data-progress-nav-target="#top" class="absolute right-full z-10 h-10 w-10" />
+
+            <a
+              data-anchor-target="#mijnwerk"
+              data-progress-nav-target="#mijnwerk"
+              href="#mijnwerk"
+              class="group relative z-30 flex h-10 cursor-pointer items-center justify-center overflow-hidden rounded-full px-2.5 text-white no-underline uppercase font-semibold tracking-[-1px] outline-none focus-visible:ring-2 focus-visible:ring-primary-600/80 focus-visible:ring-offset-4 focus-visible:ring-offset-dark-800 md:px-4 [&.is--active]:text-dark-800"
+            >
+              <span class="relative flex h-full items-center justify-center whitespace-nowrap text-sm md:text-lg">
+                <span class="flex h-full items-center justify-center transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] translate-y-0 group-hover:-translate-y-full rotate-[0.001deg]">
+                  <span class="font-family-helvetica font-semibold">Mijn werk</span>
+                </span>
+                <span class="absolute top-full flex h-full items-center justify-center transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] translate-y-0 group-hover:-translate-y-full rotate-[0.001deg]">
+                  <span class="font-family-helvetica font-semibold">Mijn werk</span>
+                </span>
+              </span>
           </a>
-          <a data-progress-nav-target="#concept" href="#concept" class="progress-nav__btn">
-            <span class="progress-nav__btn-text font-family-helvetica font-semibold ">Over mij</span>
-            <span class="progress-nav__btn-text is--duplicate font-family-helvetica font-semibold ">Over mij</span>
+
+            <a
+              data-progress-nav-target="#concept"
+              href="#concept"
+              class="group relative z-30 flex h-10 cursor-pointer items-center justify-center overflow-hidden rounded-full px-2.5 text-white no-underline uppercase font-semibold tracking-[-1px] outline-none focus-visible:ring-2 focus-visible:ring-primary-600/80 focus-visible:ring-offset-4 focus-visible:ring-offset-dark-800 md:px-4 [&.is--active]:text-dark-800"
+            >
+              <span class="relative flex h-full items-center justify-center whitespace-nowrap text-sm md:text-lg">
+                <span class="flex h-full items-center justify-center transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] translate-y-0 group-hover:-translate-y-full rotate-[0.001deg]">
+                  <span class="font-family-helvetica font-semibold">Over mij</span>
+                </span>
+                <span class="absolute top-full flex h-full items-center justify-center transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] translate-y-0 group-hover:-translate-y-full rotate-[0.001deg]">
+                  <span class="font-family-helvetica font-semibold">Over mij</span>
+                </span>
+              </span>
           </a>
-          <a data-progress-nav-target="#service" href="#service" class="progress-nav__btn">
-            <span class="progress-nav__btn-text font-family-helvetica font-semibold">Services</span>
-            <span class="progress-nav__btn-text is--duplicate font-family-helvetica font-semibold">Services</span>
+
+            <a
+              data-progress-nav-target="#service"
+              href="#service"
+              class="group relative z-30 flex h-10 cursor-pointer items-center justify-center overflow-hidden rounded-full px-2.5 text-white no-underline uppercase font-semibold tracking-[-1px] outline-none focus-visible:ring-2 focus-visible:ring-primary-600/80 focus-visible:ring-offset-4 focus-visible:ring-offset-dark-800 md:px-4 [&.is--active]:text-dark-800"
+            >
+              <span class="relative flex h-full items-center justify-center whitespace-nowrap text-sm md:text-lg">
+                <span class="flex h-full items-center justify-center transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] translate-y-0 group-hover:-translate-y-full rotate-[0.001deg]">
+                  <span class="font-family-helvetica font-semibold">Services</span>
+                </span>
+                <span class="absolute top-full flex h-full items-center justify-center transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] translate-y-0 group-hover:-translate-y-full rotate-[0.001deg]">
+                  <span class="font-family-helvetica font-semibold">Services</span>
+                </span>
+              </span>
           </a>
-          <div data-progress-nav-target="#bottom" class="progress-nav__btn is--after" />
+
+            <div data-progress-nav-target="#bottom" class="absolute left-full z-10 h-10 w-10" />
         </div>
       </div>
+      </div>
 
-      <NuxtLink to="/contact" class="progress-nav__contact-btn">
-        <span class="progress-nav__btn-text">Contact</span>
-        <span class="progress-nav__btn-text is--duplicate">Contact</span>
+      <NuxtLink
+        to="/contact"
+        class="group relative z-50 inline-flex h-10 items-center justify-center overflow-hidden rounded-full bg-white px-4 text-dark-800 no-underline uppercase font-semibold tracking-[-1px] outline-none focus-visible:ring-2 focus-visible:ring-primary-600/80 focus-visible:ring-offset-4 focus-visible:ring-offset-dark-800 md:h-14 md:px-6"
+      >
+        <span class="relative flex h-full items-center justify-center whitespace-nowrap text-sm md:text-lg">
+          <span class="flex h-full items-center justify-center transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] translate-y-0 group-hover:-translate-y-full rotate-[0.001deg]">
+            Contact
+          </span>
+          <span class="absolute top-full flex h-full items-center justify-center transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] translate-y-0 group-hover:-translate-y-full rotate-[0.001deg]">
+            Contact
+          </span>
+        </span>
       </NuxtLink>
     </div>
   </LayoutTheContainer>
   </nav>
 </template>
-
-<style lang="scss" scoped>
-.progress-nav {
-  width: 100%;
-  padding: 2em;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 40;
-}
-
-.progress-nav__inner {
-  justify-content: space-between;
-  align-items: center;
-  display: flex;
-  position: relative;
-}
-
-.progress-nav__logo {
-  color: inherit;
-  text-decoration: none;
-}
-
-.progress-nav__logo-svg {
-  width: 6em;
-}
-
-.progress-nav__wrapper {
-  backdrop-filter: blur(20px) brightness(0.5);
-  border-radius: 50em;
-  padding: .5em;
-}
-
-.progress-nav__list {
-  border-radius: 50em;
-  justify-content: flex-start;
-  align-items: center;
-  display: flex;
-  position: relative;
-  overflow: hidden;
-}
-
-.progress-nav__indicator {
-  z-index: 2;
-  background-color: #fff;
-  border-radius: 50em;
-  width: 2.5em;
-  height: 2.5em;
-  position: absolute;
-  left: -2.5em;
-  transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.progress-nav__btn {
-  z-index: 3;
-  cursor: pointer;
-  color: inherit;
-  justify-content: center;
-  align-items: center;
-  height: 2.5em;
-  padding-left: 1em;
-  padding-right: 1em;
-  text-decoration: none;
-  display: flex;
-  position: relative;
-  overflow: hidden;
-  color: white;
-  text-transform: uppercase;
-  --tw-tracking: calc(1px * -1);
-  letter-spacing: calc(1px * -1);
-  font-weight: 600;
-}
-
-.progress-nav__btn.is--before {
-  z-index: 1;
-  width: 2.5em;
-  height: 2.5em;
-  padding-left: 0;
-  padding-right: 0;
-  position: absolute;
-  right: 100%;
-}
-
-.progress-nav__btn.is--after {
-  z-index: 1;
-  width: 2.5em;
-  height: 2.5em;
-  padding-left: 0;
-  padding-right: 0;
-  position: absolute;
-  left: 100%;
-}
-
-.progress-nav__btn-text {
-  white-space: nowrap;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  font-size: 1.125em;
-  display: flex;
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-  transform: translateY(0%) rotate(0.001deg);
-}
-
-.progress-nav__btn-text.is--duplicate {
-  position: absolute;
-  top: 100%;
-}
-
-.progress-nav__btn.is--active {
-  color: var(--color-dark-800);
-}
-
-.progress-nav__btn.is--active .progress-nav__btn-text {
-  font-weight: 600;
-}
-
-.progress-nav__btn:hover .progress-nav__btn-text,
-.progress-nav__contact-btn:hover .progress-nav__btn-text{
-  transform: translateY(-100%) rotate(0.001deg);
-}
-
-.progress-nav__contact-btn {
-  color: var(--color-dark-800);
-  background-color: white;
-  border-radius: 50em;
-  height: 3.5em;
-  padding-left: 1.5em;
-  padding-right: 1.5em;
-  text-decoration: none;
-  position: relative;
-  overflow: hidden;
-  text-transform: uppercase;
-  --tw-tracking: calc(1px * -1);
-  letter-spacing: calc(1px * -1);
-  font-weight: 600;
-}
-
-.section-resource {
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  display: flex;
-}
-
-.section-resource.is--flipped {
-  color: #fff;
-  background-color: #7886c7;
-}
-
-.section-resource__h2 {
-  font-size: 5em;
-  font-weight: 500;
-  line-height: 1;
-}
-
-@media (max-width: 767px) {
-  .progress-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    padding: 0.5rem 0.75rem;
-    z-index: 40;
-  }
-
-  .progress-nav__inner {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    gap: 0.5rem;
-  }
-
-  .progress-nav__logo-svg {
-    width: 3.5rem;
-  }
-
-  .progress-nav__wrapper {
-    position: fixed;             /* menu-balk onderaan het scherm */
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    padding: 0.4rem 0.75rem;
-    border-radius: 0;            /* optioneel: full-width bar onderaan */
-    z-index: 40;
-  }
-
-  .progress-nav__list {
-    width: 100%;
-    overflow-x: auto;
-    overflow-y: hidden;
-    scrollbar-width: none;
-  }
-
-  .progress-nav__list::-webkit-scrollbar {
-    display: none;
-  }
-
-  .progress-nav__btn {
-    padding-left: 0.6rem;
-    padding-right: 0.6rem;
-  }
-
-  .progress-nav__btn-text {
-    font-size: 0.85rem;
-  }
-
-  .progress-nav__contact-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    height: 2.5em;
-    padding-left: 0.9em;
-    padding-right: 0.9em;
-    font-size: 0.85rem;
-  }
-}
-</style>
