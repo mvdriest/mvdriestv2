@@ -65,25 +65,50 @@ const toEmbedUrl = (rawUrl: string) => {
       return rawUrl
     }
 
+    const isYouTube = url.hostname.includes('youtube.com') || url.hostname.includes('youtu.be')
+
     if (url.hostname.includes('youtu.be')) {
       videoId = url.pathname.replace('/', '')
     }
 
     if (url.hostname.includes('youtube.com')) {
       videoId = url.searchParams.get('v') || ''
+
       if (!videoId && url.pathname.startsWith('/shorts/')) {
         videoId = url.pathname.replace('/shorts/', '').split('/')[0] || ''
       }
+
+      // Support pasting embed URLs directly
+      if (!videoId && url.pathname.startsWith('/embed/')) {
+        videoId = url.pathname.replace('/embed/', '').split('/')[0] || ''
+      }
+
+      // Support /live/{id}
+      if (!videoId && url.pathname.startsWith('/live/')) {
+        videoId = url.pathname.replace('/live/', '').split('/')[0] || ''
+      }
     }
 
-    if (!videoId) {
+    if (!isYouTube || !videoId) {
       return rawUrl
     }
 
     const startParam = url.searchParams.get('t') || url.searchParams.get('start') || ''
     const start = parseStartSeconds(startParam)
 
-    return `https://www.youtube.com/embed/${videoId}${start > 0 ? `?start=${start}` : ''}`
+    const embed = new URL(`https://www.youtube.com/embed/${videoId}`)
+
+    // Prevent surprise audio/autoplay; user can still press play.
+    embed.searchParams.set('autoplay', '0')
+    embed.searchParams.set('mute', '1')
+    embed.searchParams.set('playsinline', '1')
+    embed.searchParams.set('rel', '0')
+
+    if (start > 0) {
+      embed.searchParams.set('start', String(start))
+    }
+
+    return embed.toString()
   }
   catch {
     return rawUrl
@@ -145,7 +170,7 @@ const frameStyle = (embedUrl: string) => {
         :style="frameStyle(video.embedUrl)"
         loading="lazy"
         referrerpolicy="strict-origin-when-cross-origin"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowfullscreen
       />
     </article>
