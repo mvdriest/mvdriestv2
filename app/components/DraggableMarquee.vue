@@ -179,6 +179,7 @@ function initDraggableMarquee(gsap: any, Observer: any, ScrollTrigger: any) {
         <div class="draggable-marquee__item relative">
           <video
             draggable="false"
+            data-autoplay-inline
             autoplay
             muted
             loop
@@ -216,6 +217,7 @@ function initDraggableMarquee(gsap: any, Observer: any, ScrollTrigger: any) {
         <div class="draggable-marquee__item relative">
           <video
             draggable="false"
+            data-autoplay-inline
             autoplay
             muted
             loop

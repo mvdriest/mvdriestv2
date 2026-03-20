@@ -148,7 +148,19 @@ watch(loaderFinished, (finished) => {
     </div>
     <div class="absolute inset-0 bg-black opacity-20 z-10 overlay-dark" />
     <div class="absolute inset-0 z-0 hero-media overflow-hidden">
-      <video aria-hidden="true" class="absolute inset-0 w-full h-full object-cover" autoplay muted loop playsinline preload="auto">
+      <video
+        aria-hidden="true"
+        class="absolute inset-0 w-full h-full object-cover"
+        data-autoplay-inline
+        autoplay
+        muted
+        loop
+        playsinline
+        webkit-playsinline
+        disableremoteplayback
+        disablepictureinpicture
+        preload="auto"
+      >
         <source src="/images/other/achtergrond.mp4" type="video/mp4" />
         <!-- fallback image if video not supported -->
         <img src="/images/other/Auto-Atlas-Laptop.jpg" alt="" />

@@ -27,11 +27,12 @@ defineProps<Props>()
       <video
         class="short-card__video"
         :src="item.src"
+        data-autoplay-inline
         autoplay
         muted
         loop
         playsinline
-        preload="metadata"
+        preload="auto"
       />
 
       <div class="short-card__icon" aria-hidden="true">

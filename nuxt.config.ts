@@ -1,8 +1,15 @@
 import tailwindcss from "@tailwindcss/vite";
 
+const modules = ['@nuxt/content', '@nuxt/image', 'nuxt-headlessui', '@nuxt/icon']
+
+// Studio is intended for local authoring; keep it out of production builds.
+if (process.env.NODE_ENV !== 'production') {
+  modules.push('@nuxthq/studio')
+}
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  modules: ['@nuxt/content', '@nuxt/image', 'nuxt-headlessui', '@nuxthq/studio', '@nuxt/icon'],
+  modules,
 
   devtools: {
     enabled: true

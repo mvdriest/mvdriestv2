@@ -242,6 +242,7 @@ onUnmounted(() => {
                 <template v-if="card.kind === 'video'">
                   <video
                     class="fullscreen-stack-cards__video w-full object-cover rounded-lg"
+                    data-autoplay-inline
                     autoplay
                     muted
                     loop
