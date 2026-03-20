@@ -2,7 +2,7 @@
 import { gsap } from "gsap"
 import { SplitText } from "gsap/SplitText"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { ref, watch, nextTick, onMounted } from "vue"
+import { ref, watch, nextTick, onMounted, onUnmounted } from "vue"
 
 gsap.registerPlugin(SplitText, ScrollTrigger)
 
@@ -12,6 +12,7 @@ const loaderFinished = useState('loaderFinished')
 
 let split
 let hasAnimated = false
+let heroMediaMatchMedia
 
 const animate = async () => {
   await nextTick()
@@ -38,54 +39,73 @@ const animate = async () => {
 const initHeroPadding = () => {
   if (!heroSection.value) return
 
-  const video = heroSection.value.querySelector('video')
+  const media = heroSection.value.querySelector('.hero-media')
   const overlay = heroSection.value.querySelector('.overlay-dark')
 
-  if (!video || !overlay) return
+  if (!media || !overlay) return
 
-  // Sync both video and overlay with same timeline
-  const timeline = gsap.timeline({
-    scrollTrigger: {
-      trigger: heroSection.value,
-      start: "top top",
-      end: "150% center",
-      scrub: 1,
-      markers: false
-    }
+  heroMediaMatchMedia?.revert?.()
+  heroMediaMatchMedia = gsap.matchMedia()
+
+  // Mobile: no scaling/inset animation (reset any inline styles)
+  heroMediaMatchMedia.add("(max-width: 767px)", () => {
+    gsap.set([media, overlay], { clearProps: "inset,borderRadius" })
+    gsap.set(heroSection.value, { clearProps: "padding" })
   })
 
-  timeline.fromTo([video, overlay], 
-    {
-      transform: "scale(1)",
-      borderRadius: "0rem",
-      top: "0",
-      left: "0"
-    },
-    {
-      transform: "scale(0.92)",
-      borderRadius: "2rem",
-      top: "2rem",
-      left: "2rem",
-      ease: "none"
-    },
-    0 // same time
-  )
+  // Desktop (md+): animate from center via inset
+  heroMediaMatchMedia.add("(min-width: 768px)", () => {
+    // Sync both media wrapper and overlay with same timeline
+    const timeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: heroSection.value,
+        start: "top top",
+        end: "150% center",
+        scrub: 1,
+        markers: false
+      }
+    })
 
-  // Add padding to section for bg color to show
-  timeline.fromTo(heroSection.value,
-    {
-      padding: "0rem"
-    },
-    {
-      padding: "2rem",
-      ease: "none"
-    },
-    0 // same time
-  )
+    timeline.fromTo(
+      [media, overlay],
+      {
+        inset: "0rem",
+        borderRadius: "0rem"
+      },
+      {
+        inset: "2rem",
+        borderRadius: "2rem",
+        ease: "none"
+      },
+      0 // same time
+    )
+
+    // Add padding to section for bg color to show
+    timeline.fromTo(
+      heroSection.value,
+      {
+        padding: "0rem"
+      },
+      {
+        padding: "2rem",
+        ease: "none"
+      },
+      0 // same time
+    )
+
+    return () => {
+      timeline.scrollTrigger?.kill()
+      timeline.kill()
+    }
+  })
 }
 
 onMounted(() => {
   initHeroPadding()
+})
+
+onUnmounted(() => {
+  heroMediaMatchMedia?.revert?.()
 })
 
 watch(loaderFinished, (finished) => {
@@ -101,7 +121,7 @@ watch(loaderFinished, (finished) => {
       <LayoutTheContainer>
         <div class="flex items-end justify-start h-full relative z-10 mb-16">
           <div>
-            <div class="flex gap-4 items-center flex-wrap">
+            <div class="sm:flex gap-4 items-center flex-wrap hidden">
               <div class="backdrop-blur-3xl px-3 py-2 w-fit backdrop-brightness-200 rounded-md">
                 <p class="text-xl text-white font-semibold font-family-helvetica -tracking-[1px] uppercase">Video</p>
               </div>
@@ -115,7 +135,7 @@ watch(loaderFinished, (finished) => {
                 <p class="text-xl text-white font-semibold font-family-helvetica -tracking-[1px] uppercase">Branding</p>
               </div>
             </div>
-            <h1 ref="title" class="hero-title text-4xl max-w-3xl leading-snug md:text-8xl font-bold text-left text-primary-600 mt-8 md:leading-[5.8rem] z-10 md:-tracking-[4px]">
+            <h1 ref="title" class="hero-title uppercase md:normal-case text-4xl max-w-3xl leading-snug md:text-8xl font-bold text-left text-primary-600 mt-8 md:leading-[5.8rem] z-10 md:-tracking-[4px]">
               Jouw merk is 
               te cool voor standaard. 
             </h1>
@@ -126,12 +146,14 @@ watch(loaderFinished, (finished) => {
         </div>
       </LayoutTheContainer>
     </div>
-    <div class="absolute top-0 bg-black h-full w-full opacity-20 z-10 overlay-dark" />
-    <video aria-hidden="true" class="absolute top-0 left-0 w-full h-full object-cover z-0" autoplay muted loop playsinline preload="auto">
-      <source src="/images/other/achtergrond.mp4" type="video/mp4" />
-      <!-- fallback image if video not supported -->
-      <img src="/images/other/Auto-Atlas-Laptop.jpg" alt="" />
-    </video>
+    <div class="absolute inset-0 bg-black opacity-20 z-10 overlay-dark" />
+    <div class="absolute inset-0 z-0 hero-media overflow-hidden">
+      <video aria-hidden="true" class="absolute inset-0 w-full h-full object-cover" autoplay muted loop playsinline preload="auto">
+        <source src="/images/other/achtergrond.mp4" type="video/mp4" />
+        <!-- fallback image if video not supported -->
+        <img src="/images/other/Auto-Atlas-Laptop.jpg" alt="" />
+      </video>
+    </div>
     <!-- <div class="bg-[url('~/assets/image/Auto-Atlas-Laptop.jpg')] bg-cover bg-no-repeat h-[60rem] -mt-12 w-fullx">
       <div class="bg-black h-full w-full opacity-20 z-0" />
     </div> -->
