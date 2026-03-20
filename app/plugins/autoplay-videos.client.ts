@@ -6,9 +6,6 @@ function configureInlineAutoplay(video: HTMLVideoElement) {
   video.loop = true
   ;(video as any).playsInline = true
 
-  // Help the browser buffer enough to start without user interaction.
-  if (!video.getAttribute('preload')) video.preload = 'auto'
-
   video.setAttribute('muted', '')
   video.setAttribute('autoplay', '')
   video.setAttribute('loop', '')
@@ -19,6 +16,13 @@ function configureInlineAutoplay(video: HTMLVideoElement) {
 async function tryPlay(video: HTMLVideoElement) {
   try {
     configureInlineAutoplay(video)
+
+    // Only fetch aggressively when we actually want to start playing.
+    if (video.preload !== 'auto') {
+      video.preload = 'auto'
+      video.setAttribute('preload', 'auto')
+    }
+
     if (video.ended) video.currentTime = 0
 
     // Ensure we actually start fetching if the element was created lazily.
@@ -47,9 +51,16 @@ export default defineNuxtPlugin((nuxtApp) => {
   const io = new IntersectionObserver(
     (entries) => {
       for (const entry of entries) {
-        if (!entry.isIntersecting) continue
         const video = entry.target as HTMLVideoElement
-        void tryPlay(video)
+        if (entry.isIntersecting) {
+          void tryPlay(video)
+        } else {
+          try {
+            if (!video.paused) video.pause()
+          } catch {
+            // ignore
+          }
+        }
       }
     },
     {
@@ -60,6 +71,12 @@ export default defineNuxtPlugin((nuxtApp) => {
     },
   )
 
+  const isNearViewport = (el: Element) => {
+    const rect = el.getBoundingClientRect()
+    const margin = 250
+    return rect.bottom > -margin && rect.top < window.innerHeight + margin
+  }
+
   const refresh = () => {
     const videos = Array.from(document.querySelectorAll(selector)) as HTMLVideoElement[]
     for (const video of videos) {
@@ -67,16 +84,18 @@ export default defineNuxtPlugin((nuxtApp) => {
       initialized.add(video)
 
       // Try immediately, on media readiness, and when it enters the viewport.
-      void tryPlay(video)
+      if (isNearViewport(video)) void tryPlay(video)
       const retry = () => void tryPlay(video)
       video.addEventListener('loadedmetadata', retry)
       video.addEventListener('canplay', retry)
       io.observe(video)
 
       // Some mobile browsers need a little time after layout.
-      window.setTimeout(retry, 200)
-      window.setTimeout(retry, 800)
-      window.setTimeout(retry, 2000)
+      if (isNearViewport(video)) {
+        window.setTimeout(retry, 200)
+        window.setTimeout(retry, 800)
+        window.setTimeout(retry, 2000)
+      }
     }
   }
 

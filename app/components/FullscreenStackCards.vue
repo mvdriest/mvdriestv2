@@ -247,7 +247,7 @@ onUnmounted(() => {
                     muted
                     loop
                     playsinline
-                    preload="auto"
+                    preload="metadata"
                     :key="card.src"
                   >
                     <source :src="card.src" type="video/mp4" />

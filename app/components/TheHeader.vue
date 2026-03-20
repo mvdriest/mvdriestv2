@@ -152,18 +152,18 @@ watch(loaderFinished, (finished) => {
         aria-hidden="true"
         class="absolute inset-0 w-full h-full object-cover"
         data-autoplay-inline
-        autoplay
         muted
         loop
         playsinline
         webkit-playsinline
         disableremoteplayback
         disablepictureinpicture
-        preload="auto"
+        preload="metadata"
+        poster="/images/other/home_aa.jpg"
       >
         <source src="/images/other/achtergrond.mp4" type="video/mp4" />
         <!-- fallback image if video not supported -->
-        <img src="/images/other/Auto-Atlas-Laptop.jpg" alt="" />
+        <img src="/images/other/home_aa.jpg" alt="" />
       </video>
     </div>
     <!-- <div class="bg-[url('~/assets/image/Auto-Atlas-Laptop.jpg')] bg-cover bg-no-repeat h-[60rem] -mt-12 w-fullx">

@@ -152,7 +152,8 @@ function initDraggableMarquee(gsap: any, Observer: any, ScrollTrigger: any) {
         <div class="draggable-marquee__item">
           <img
             draggable="false"
-            loading="eager"
+            loading="lazy"
+            decoding="async"
             src="/images/other/utrecht1.jpg"
             class="draggable-marquee__item-img"
             alt=""
@@ -161,7 +162,8 @@ function initDraggableMarquee(gsap: any, Observer: any, ScrollTrigger: any) {
         <div class="draggable-marquee__item">
           <img
             draggable="false"
-            loading="eager"
+            loading="lazy"
+            decoding="async"
             src="/images/other/sanne.jpg"
             class="draggable-marquee__item-img"
             alt=""
@@ -170,7 +172,8 @@ function initDraggableMarquee(gsap: any, Observer: any, ScrollTrigger: any) {
         <div class="draggable-marquee__item">
           <img
             draggable="false"
-            loading="eager"
+            loading="lazy"
+            decoding="async"
             src="/images/other/aamockup.jpg"
             class="draggable-marquee__item-img"
             alt=""
@@ -180,10 +183,10 @@ function initDraggableMarquee(gsap: any, Observer: any, ScrollTrigger: any) {
           <video
             draggable="false"
             data-autoplay-inline
-            autoplay
             muted
             loop
             playsinline
+            preload="metadata"
             width="336"
             height="480"
             class="draggable-marquee__item-img"
@@ -199,7 +202,8 @@ function initDraggableMarquee(gsap: any, Observer: any, ScrollTrigger: any) {
         <div class="draggable-marquee__item">
           <img
             draggable="false"
-            loading="eager"
+            loading="lazy"
+            decoding="async"
             src="/images/other/ikfoto.jpg"
             class="draggable-marquee__item-img"
             alt=""
@@ -208,7 +212,8 @@ function initDraggableMarquee(gsap: any, Observer: any, ScrollTrigger: any) {
         <div class="draggable-marquee__item">
           <img
             draggable="false"
-            loading="eager"
+            loading="lazy"
+            decoding="async"
             src="/images/other/utrecht2.jpg"
             class="draggable-marquee__item-img"
             alt=""
@@ -218,10 +223,10 @@ function initDraggableMarquee(gsap: any, Observer: any, ScrollTrigger: any) {
           <video
             draggable="false"
             data-autoplay-inline
-            autoplay
             muted
             loop
             playsinline
+            preload="metadata"
             width="336"
             height="480"
             class="draggable-marquee__item-img"

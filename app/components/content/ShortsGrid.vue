@@ -32,7 +32,7 @@ defineProps<Props>()
         muted
         loop
         playsinline
-        preload="auto"
+        preload="metadata"
       />
 
       <div class="short-card__icon" aria-hidden="true">
