@@ -8,7 +8,7 @@
     </div>
     <LayoutTheContainer>
       <div class="flex items-center justify-center flex-col">
-        <h2 class="text-5xl uppercase max-w-4xl md:text-8xl font-bold text-center text-white mt-8 md:leading-[5.8rem] z-10 md:-tracking-[4px]">Wil je dat je <br/> merk ineens <br/><span data-momentum-hover-element class="inline-block"><span data-momentum-hover-target class="bg-primary-600 px-8 text-dark-600 inline-block leading-none align-middle pb-4 mt-4">wel</span></span> <span data-momentum-hover-element class="inline-block"><span data-momentum-hover-target class="bg-[#FF5421] px-8 text-white inline-block leading-none align-middle pb-4 mt-4">opvalt?</span></span></h2>
+        <h2 class="text-5xl uppercase max-w-4xl md:text-8xl font-bold text-center text-white mt-8 md:leading-[5.8rem] z-10 md:-tracking-[4px]">Wil je dat je <br class="hidden md:block" /> merk ineens <br class="hidden md:block" /><span data-momentum-hover-element class="inline-block"><span data-momentum-hover-target class="bg-primary-600 px-4 md:px-8 text-dark-600 inline-block leading-none align-middle pb-3 md:pb-4 mt-2.5 md:mt-4">wel</span></span> <span data-momentum-hover-element class="inline-block"><span data-momentum-hover-target class="bg-[#FF5421] px-4 md:px-8 text-white inline-block leading-none align-middle pb-3 md:pb-4 mt-2.5 md:mt-4">opvalt?</span></span></h2>
           <p class=" mt-7 text-white text-[22px] font-semibold text-center max-w-2xl font-family-helvetica -tracking-[1px] ">Ik geloof in een wereld waar sterke websites, cinematische video, krachtige fotografie en consistente branding je merk laten opvallen zoals het verdient.</p>
           <IconButton label="Naar aanmeldformulier" href="/contact" class="mt-10" />
       </div>

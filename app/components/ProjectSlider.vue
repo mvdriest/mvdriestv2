@@ -1,12 +1,32 @@
 <script lang="ts" setup>
-const { data: contentQuery } = await useAsyncData('projecten', () => queryCollection('projecten').limit(6).all())
+const { data: contentQuery } = await useAsyncData('projecten-slider', () =>
+  queryCollection('projecten').all()
+)
+
+const projects = computed(() => {
+  const items = contentQuery.value ?? []
+
+  const sorted = [...items].sort((a: any, b: any) => {
+    const aOrder = Number.isFinite(a?.gridOrder) ? Number(a.gridOrder) : Number.MAX_SAFE_INTEGER
+    const bOrder = Number.isFinite(b?.gridOrder) ? Number(b.gridOrder) : Number.MAX_SAFE_INTEGER
+
+    if (aOrder !== bOrder)
+      return aOrder - bOrder
+
+    const aTitle = String(a?.title ?? '')
+    const bTitle = String(b?.title ?? '')
+    return aTitle.localeCompare(bTitle)
+  })
+
+  return sorted.slice(0, 6)
+})
 </script>
 
 <template>
   <div class="slidersection flex flex-nowrap overflow-hidden gap-[15px]">
     <div class="list flex gap-[15px] flex-[0_0_auto]">
       <nuxt-link
-        v-for="post in contentQuery"
+        v-for="post in projects"
         :key="post.id"
         :to="post.path"
         tag="div"
@@ -33,7 +53,7 @@ const { data: contentQuery } = await useAsyncData('projecten', () => queryCollec
     </div>
     <div class="list flex gap-[15px] flex-[0_0_auto]">
       <nuxt-link
-        v-for="post in contentQuery"
+        v-for="post in projects"
         :key="post.id"
         :to="post.path"
         tag="div"

@@ -1,6 +1,7 @@
 ---
 title: "Sanne Groenink"
 tags: ["Fotografie"]
+gridOrder: 2
 description: "Fotoserie voor de praktijkwebsite van Sanne Groenink, met portret- en sfeerbeelden die een warme en toegankelijke uitstraling geven."
 link: "https://www.autoatlas.nl"
 projectAssetsDir: "sannegroenink"

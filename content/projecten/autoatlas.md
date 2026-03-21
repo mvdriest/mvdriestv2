@@ -1,6 +1,7 @@
 ---
 title: "Auto Atlas"
 tags: ["Video", "Foto", "Branding"]
+gridOrder: 1
 description: "Voor Auto Atlas ontwikkelden we een krachtige merkbeleving met een snelle, conversiegerichte website en een visuele stijl die direct vertrouwen uitstraalt."
 link: "https://www.autoatlas.nl"
 projectAssetsDir: "autoatlas"

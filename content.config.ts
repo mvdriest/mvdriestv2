@@ -10,6 +10,7 @@ export default defineContentConfig({
                 title: z.string(),
                 tags: z.array(z.string()),
                 projectAssetsDir: z.string(),
+                gridOrder: z.number().int().optional(),
             })
         })
     }

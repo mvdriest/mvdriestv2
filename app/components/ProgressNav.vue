@@ -204,8 +204,8 @@ onBeforeUnmount(() => {
           </a>
 
             <a
-              data-progress-nav-target="#concept"
-              href="#concept"
+              data-progress-nav-target="#overmij"
+              href="#overmij"
               class="group relative z-30 flex h-10 cursor-pointer items-center justify-center overflow-hidden rounded-full px-2.5 text-white no-underline uppercase font-semibold tracking-[-1px] outline-none focus-visible:ring-2 focus-visible:ring-primary-600/80 focus-visible:ring-offset-4 focus-visible:ring-offset-dark-800 md:px-4 [&.is--active]:text-dark-800"
             >
               <span class="relative flex h-full items-center justify-center whitespace-nowrap text-sm md:text-lg">
@@ -219,8 +219,8 @@ onBeforeUnmount(() => {
           </a>
 
             <a
-              data-progress-nav-target="#service"
-              href="#service"
+              data-progress-nav-target="#services"
+              href="#services"
               class="group relative z-30 flex h-10 cursor-pointer items-center justify-center overflow-hidden rounded-full px-2.5 text-white no-underline uppercase font-semibold tracking-[-1px] outline-none focus-visible:ring-2 focus-visible:ring-primary-600/80 focus-visible:ring-offset-4 focus-visible:ring-offset-dark-800 md:px-4 [&.is--active]:text-dark-800"
             >
               <span class="relative flex h-full items-center justify-center whitespace-nowrap text-sm md:text-lg">

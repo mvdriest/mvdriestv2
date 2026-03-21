@@ -135,7 +135,7 @@ watch(loaderFinished, (finished) => {
                 <p class="text-xl text-white font-semibold font-family-helvetica -tracking-[1px] uppercase">Branding</p>
               </div>
             </div>
-            <h1 ref="title" class="hero-title uppercase md:normal-case text-4xl max-w-3xl leading-snug md:text-8xl font-bold text-left text-primary-600 mt-8 md:leading-[5.8rem] z-10 md:-tracking-[4px]">
+            <h1 ref="title" class="hero-title  text-5xl max-w-3xl md:text-8xl font-bold text-left text-primary-600 mt-8 md:leading-[5.8rem] z-10 md:-tracking-[4px]">
               Jouw merk is 
               te cool voor standaard. 
             </h1>

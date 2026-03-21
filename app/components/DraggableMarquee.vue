@@ -145,41 +145,41 @@ function initDraggableMarquee(gsap: any, Observer: any, ScrollTrigger: any) {
     data-duration="30"
     data-multiplier="35"
     data-sensitivity="0.01"
-    class="draggable-marquee"
+    class="flex w-full flex-none items-center justify-start overflow-hidden"
   >
-    <div data-draggable-marquee-collection class="draggable-marquee__collection">
-      <div data-draggable-marquee-list class="draggable-marquee__list">
-        <div class="draggable-marquee__item">
+    <div data-draggable-marquee-collection class="flex flex-none items-center justify-start will-change-transform">
+      <div data-draggable-marquee-list class="flex flex-none items-center justify-start">
+        <div class="mr-[1em] aspect-[0.7] w-[15em] md:w-[21em] flex-none overflow-hidden rounded-[1.25em]">
           <img
             draggable="false"
             loading="lazy"
             decoding="async"
             src="/images/other/utrecht1.jpg"
-            class="draggable-marquee__item-img"
+            class="h-full w-full object-cover"
             alt=""
           />
         </div>
-        <div class="draggable-marquee__item">
+        <div class="mr-[1em] aspect-[0.7] w-[15em] md:w-[21em] flex-none overflow-hidden rounded-[1.25em]">
           <img
             draggable="false"
             loading="lazy"
             decoding="async"
             src="/images/other/sanne.jpg"
-            class="draggable-marquee__item-img"
+            class="h-full w-full object-cover"
             alt=""
           />
         </div>
-        <div class="draggable-marquee__item">
+        <div class="mr-[1em] aspect-[0.7] w-[15em] md:w-[21em] flex-none overflow-hidden rounded-[1.25em]">
           <img
             draggable="false"
             loading="lazy"
             decoding="async"
             src="/images/other/aamockup.jpg"
-            class="draggable-marquee__item-img"
+            class="h-full w-full object-cover"
             alt=""
           />
         </div>
-        <div class="draggable-marquee__item relative">
+        <div class="relative mr-[1em] aspect-[0.7] w-[15em] md:w-[21em] flex-none overflow-hidden rounded-[1.25em]">
           <video
             draggable="false"
             data-autoplay-inline
@@ -189,7 +189,7 @@ function initDraggableMarquee(gsap: any, Observer: any, ScrollTrigger: any) {
             preload="metadata"
             width="336"
             height="480"
-            class="draggable-marquee__item-img"
+            class="h-full w-full object-cover"
           >
             <source src="/images/other/ajax_short.mp4" type="video/mp4" />
           </video>
@@ -199,27 +199,27 @@ function initDraggableMarquee(gsap: any, Observer: any, ScrollTrigger: any) {
             </div>
           </div>
         </div>
-        <div class="draggable-marquee__item">
+        <div class="mr-[1em] aspect-[0.7] w-[15em] md:w-[21em] flex-none overflow-hidden rounded-[1.25em]">
           <img
             draggable="false"
             loading="lazy"
             decoding="async"
             src="/images/other/ikfoto.jpg"
-            class="draggable-marquee__item-img"
+            class="h-full w-full object-cover"
             alt=""
           />
         </div>
-        <div class="draggable-marquee__item">
+        <div class="mr-[1em] aspect-[0.7] w-[15em] md:w-[21em] flex-none overflow-hidden rounded-[1.25em]">
           <img
             draggable="false"
             loading="lazy"
             decoding="async"
             src="/images/other/utrecht2.jpg"
-            class="draggable-marquee__item-img"
+            class="h-full w-full object-cover"
             alt=""
           />
         </div>
-        <div class="draggable-marquee__item relative">
+        <div class="relative mr-[1em] aspect-[0.7] w-[15em] md:w-[21em] flex-none overflow-hidden rounded-[1.25em]">
           <video
             draggable="false"
             data-autoplay-inline
@@ -229,7 +229,7 @@ function initDraggableMarquee(gsap: any, Observer: any, ScrollTrigger: any) {
             preload="metadata"
             width="336"
             height="480"
-            class="draggable-marquee__item-img"
+            class="h-full w-full object-cover"
           >
             <source src="/images/other/xpeng_short.mp4" type="video/mp4" />
           </video>
@@ -244,49 +244,4 @@ function initDraggableMarquee(gsap: any, Observer: any, ScrollTrigger: any) {
     </div>
   </div>
 </template>
-
-<style scoped>
-.draggable-marquee {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex: none;
-  width: 100%;
-  overflow: hidden;
-}
-
-.draggable-marquee__collection {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex: none;
-  will-change: transform;
-}
-
-.draggable-marquee__list {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex: none;
-}
-
-.draggable-marquee__item {
-  width: 21em;
-  aspect-ratio: 0.7;
-  border-radius: 1.25em;
-  margin-right: 1em;
-  flex: none;
-  overflow: hidden;
-}
-
-.draggable-marquee__item.is--round {
-  border-radius: 100em;
-}
-
-.draggable-marquee__item-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-</style>
 
