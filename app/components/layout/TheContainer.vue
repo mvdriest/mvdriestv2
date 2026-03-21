@@ -23,5 +23,9 @@
   @media (max-width: 1100px) {
     max-width: 90%;
   }
+  @media (max-width: 640px) {
+    max-width: 100%;
+    padding: 0 1rem;
+  }
 }
 </style>

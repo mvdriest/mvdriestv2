@@ -47,7 +47,7 @@ const sendForm = async (e: Event) => {
 </script>
 
 <template>
-  <section class="pb-36 bg-gray-200">
+  <section class="pb-16 md:pb-36 bg-gray-200">
     <div class="w-full h-[50lvh] relative">
       <div 
         class="absolute inset-0 bg-cover flex items-center justify-center"
@@ -70,7 +70,7 @@ const sendForm = async (e: Event) => {
       </LayoutTheContainer>
     </div>
     <LayoutTheContainer>
-      <div class="grid md:grid-cols-4 gap-20 mt-20">
+      <div class="grid md:grid-cols-4 gap-8 md:gap-20 mt-10 md:mt-20">
         <div class="flex items-start justify-top flex-col gap-8">
           <div>
             <p class="text-xl text-dark-800 font-semibold font-family-helvetica -tracking-[1px] uppercase opacity-70 pb-2">Email</p>
@@ -82,8 +82,8 @@ const sendForm = async (e: Event) => {
             <p class="text-xl text-dark-800 font-semibold font-family-helvetica -tracking-[1px] uppercase">BTW: NL866034080B01</p>
           </div>
         </div>
-        <div class="col-span-3">
-          <div class="bg-white p-[40px] rounded-lg">
+        <div class="col-span-3 min-w-0">
+          <div class="bg-white p-6 md:p-[40px] rounded-lg">
             <h1
               class="text-black max-w-3xl my-0 text-[2.0rem] leading-[50px] font-semibold mb-8"
             >
@@ -109,7 +109,7 @@ const sendForm = async (e: Event) => {
                 <input
                   type="name"
                   name="name"
-                  class="border placeholder:text-slate-300 bg-gray-100 rounded-md p-2"
+                  class="w-full border placeholder:text-slate-300 bg-gray-100 rounded-md p-2"
                   placeholder="John Doe"
                 >
               </div>
@@ -118,7 +118,7 @@ const sendForm = async (e: Event) => {
                 <input
                   type="email"
                   name="email"
-                  class="border placeholder:text-slate-300 bg-gray-100 rounded-md p-2"
+                  class="w-full border placeholder:text-slate-300 bg-gray-100 rounded-md p-2"
                   placeholder="email@email.com"
                 >
               </div>
@@ -127,7 +127,7 @@ const sendForm = async (e: Event) => {
                 <textarea
                   rows="5"
                   name="message"
-                  class="border placeholder:text-slate-300 bg-gray-100 rounded-md p-2"
+                  class="w-full border placeholder:text-slate-300 bg-gray-100 rounded-md p-2"
                   placeholder="Vertel wat over het project"
                 />
               </div>
