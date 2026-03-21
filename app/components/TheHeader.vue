@@ -137,7 +137,7 @@ watch(loaderFinished, (finished) => {
             </div>
             <h1 ref="title" class="hero-title  text-5xl max-w-3xl md:text-8xl font-bold text-left text-primary-600 mt-8 md:leading-[5.8rem] z-10 md:-tracking-[4px]">
               Jouw merk is 
-              te cool voor standaard. 
+              te cool voor standaard
             </h1>
             <!-- <p class="text-white max-w-md leading-relaxed text-center m-auto">
               Hallo! Mijn naam is Martijn van Driest. Aangenaam kennis te maken. Ik ben een Grafisch Ontwerper uit Nederland.
