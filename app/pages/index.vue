@@ -304,7 +304,7 @@ onUnmounted(() => {
       <LayoutTheContainer> 
         <div class="flex flex-col items-center gap-12 text-dark-800">
           <h1 class="text-5xl md:text-7xl uppercase font-bold max-w-[66rem] leading-tight text-center">Ik ben <br/>jouw <span class="h-fit">   <nuxt-img
-            class="-mt-4 w-12 md:w-32 md:h-fit inline-block align-middle -ml-4 mr-1"
+            class="-mt-4 w-16 md:w-32 md:h-fit inline-block align-middle ml-2 md:-ml-4 mr-1"
             src="/images/other/camera.png"
             alt="Star"
           /></span>allround <br/> creative.</h1>
